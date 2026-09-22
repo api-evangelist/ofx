@@ -26,6 +26,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Vendors
+  url: vendors/ofx-vendors.yml
 - type: OAuthScopes
   url: scopes/ofx-scopes.yml
 - type: Authentication

@@ -1,0 +1,75 @@
+generated: '2026-09-22'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: apigee
+  name: Apigee (Google Cloud)
+  area: api-gateway
+  host: developer.ofx.com
+  evidence: cname:apigee.net
+  signal: cname
+  confidence: high
+  kin_score:
+  - developer_portal
+  - rate_limits_documented
+  - authentication
+- vendor: cloudflare
+  name: Cloudflare
+  area: cdn
+  host: api-docs.ofx.com
+  evidence: header:cf-ray
+  signal: header
+  confidence: high
+  kin_score:
+  - https_enforced
+  - hsts
+- vendor: cloudfront
+  name: Amazon CloudFront
+  area: cdn
+  host: login.ofx.com
+  evidence: cname:cloudfront.net
+  signal: cname
+  confidence: high
+  kin_score: []
+- vendor: fastly
+  name: Fastly
+  area: cdn
+  host: www.ofx.com
+  evidence: header:x-served-by:cache-
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: apigee
+  name: Apigee (Google Cloud)
+  area: developer-portal
+  host: developer.ofx.com
+  evidence: https://developer.ofx.com/portals/api/sites/ofx-public/liveportal
+  signal: portal-url
+  confidence: high
+  kin_score:
+  - developer_portal
+  - rate_limits_documented
+  - authentication
+checked:
+- 'docs-platform: custom'
+- api-docs.ofx.com (GettingStarted)
+- api-docs.ofx.com (Documentation)
+- login.ofx.com (Login)
+- developer.ofx.com (DeveloperPortal)
+- www.ofx.com (Website)
+- www.ofx.com (Support)
+- beta.api.ofx.com (baseURL)
