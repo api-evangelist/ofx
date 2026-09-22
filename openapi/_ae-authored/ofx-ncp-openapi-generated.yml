@@ -1,0 +1,1771 @@
+openapi: 3.1.0
+info:
+  title: OFX NCP API
+  version: '2026-09-22'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-09-22: 22 operation(s) read from 22 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; OFX has published no machine-readable contract that
+    the pipeline could find. Engine: local.'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-09-22'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/024cc7e480dbd-get-conversion-rate
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/03a12772c2ea1-list-currency-rates
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/0e914f73879b6-get-current-user-s-permissions-for-a-company
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/144pfm5ukj7nj-search-recipients
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/4d4w4gcp8ssd6-get-bank-details
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/501ce108452a8-get-user
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/58598036739cb-create-conversion
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/821n1gi7c7ogn-create-wallet
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/8e223c8114ad4-get-attached-companies-for-user
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/a478fd9964236-get-all-company-users
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/ahxoilkt4y1c8-update-beneficiary
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/c14f23b82bf37-get-rates-for-multiple-currency-pairs
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/dbb90e2c21da4-get-conversion
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/ebd21e4725b69-validate-email-address
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/eqkk7z7dcdx79-create-beneficiary
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/fcb17fe19c60e-list-conversions
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/fd1awucgxznmm-list-beneficiaries
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/g1t5dyjnvus7z-get-wallet
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/jvqkkr32ygnjp-validate-beneficiary
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/qvdn4xtxaq2w8-get-beneficiary
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/r0t6k7acp7jw3-get-beneficiary-required-details
+  - https://api-docs.ofx.com/docs/ofx-ncp-apis/vlpe38tmpb0p3-list-wallets
+  x-docs-section: ofx-ncp-apis
+servers:
+- url: https://beta.api.ofx.com
+paths:
+  /v1/business/beneficiaries:
+    get:
+      operationId: get_v1_business_beneficiaries
+      tags:
+      - Business
+      summary: List beneficiaries for the connected company.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/fd1awucgxznmm-list-beneficiaries
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: API Key authentication.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessBeneficiariesResponse'
+    post:
+      operationId: post_v1_business_beneficiaries
+      tags:
+      - Business
+      summary: Create a new beneficiary for the connected company.
+      description: Create Beneficiary
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/eqkk7z7dcdx79-create-beneficiary
+      parameters:
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: X-StepUp-Token
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The X-StepUp-Token required to update beneficiary.
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: Auth token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessBeneficiariesRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessBeneficiariesResponse'
+  /v1/business/beneficiaries/bank-details:
+    get:
+      operationId: get_v1_business_beneficiaries_bank_details
+      tags:
+      - Business
+      summary: Get bank details for connected company.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/4d4w4gcp8ssd6-get-bank-details
+      parameters:
+      - name: identifierType
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The banking code type
+      - name: identifierValue
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The banking code value
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessBeneficiariesBankDetailsResponse'
+  /v1/business/beneficiaries/schema:
+    get:
+      operationId: get_v1_business_beneficiaries_schema
+      tags:
+      - Business
+      summary: List required details of the beneficiary.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/r0t6k7acp7jw3-get-beneficiary-required-details
+      parameters:
+      - name: bankAccountCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Country code of bank account
+      - name: beneficiaryCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Country code of beneficiary
+      - name: currency
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The currency value required
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessBeneficiariesSchemaResponse'
+  /v1/business/beneficiaries/search:
+    post:
+      operationId: post_v1_business_beneficiaries_search
+      tags:
+      - Business
+      summary: Search recipients
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/144pfm5ukj7nj-search-recipients
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessBeneficiariesSearchRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessBeneficiariesSearchResponse'
+  /v1/business/beneficiaries/validate:
+    post:
+      operationId: post_v1_business_beneficiaries_validate
+      tags:
+      - Business
+      summary: Validate beneficiary details before creation
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/jvqkkr32ygnjp-validate-beneficiary
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: Auth token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessBeneficiariesValidateRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessBeneficiariesValidateResponse'
+  /v1/business/beneficiaries/{beneficiaryId}:
+    get:
+      operationId: get_v1_business_beneficiaries_beneficiaryId
+      tags:
+      - Business
+      summary: Get a beneficiary by beneficiary identifier.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/qvdn4xtxaq2w8-get-beneficiary
+      parameters:
+      - name: beneficiaryId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessBeneficiariesBeneficiaryidResponse'
+    patch:
+      operationId: patch_v1_business_beneficiaries_beneficiaryId
+      tags:
+      - Business
+      summary: Update beneficiary by beneficiary identifier.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/ahxoilkt4y1c8-update-beneficiary
+      parameters:
+      - name: beneficiaryId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: X-StepUp-Token
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The X-StepUp-Token required to update beneficiary.
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidResponse'
+  /v1/business/conversions:
+    get:
+      operationId: get_v1_business_conversions
+      tags:
+      - Business
+      summary: List conversions within a connected OFX account.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/fcb17fe19c60e-list-conversions
+      parameters:
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Use to navigate through results that do not fit in a single response.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: number
+        description: Amount of conversions to return per page of results.
+      - name: orderType
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The type of conversion to list.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Status of the conversions that should be listed.
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: API Key
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessConversionsResponse'
+    post:
+      operationId: post_v1_business_conversions
+      tags:
+      - Business
+      summary: Create Conversion
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/58598036739cb-create-conversion
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessConversionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessConversionsResponse'
+  /v1/business/conversions/rate:
+    post:
+      operationId: post_v1_business_conversions_rate
+      tags:
+      - Business
+      summary: Get Conversion Rate
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/024cc7e480dbd-get-conversion-rate
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessConversionsRateRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessConversionsRateResponse'
+  /v1/business/conversions/{conversionId}:
+    get:
+      operationId: get_v1_business_conversions_conversionId
+      tags:
+      - Business
+      summary: Get Conversion
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/dbb90e2c21da4-get-conversion
+      parameters:
+      - name: conversionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: includeQueryParams
+        in: query
+        required: false
+        schema:
+          type: array
+        description: 'Comma separated list of query parameters to include in the response. Allowed value: cancellationCosts'
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services
+      responses:
+        '2000':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessConversionsConversionidResponse'
+  /v1/business/rates:
+    get:
+      operationId: get_v1_business_rates
+      tags:
+      - Business
+      summary: Get the current currency rates for a company's base currency
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/03a12772c2ea1-list-currency-rates
+      parameters:
+      - name: currency
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Optional base currency; if not supplied, defaults to the company base currency
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessRatesResponse'
+  /v1/business/rates/bulk:
+    get:
+      operationId: get_v1_business_rates_bulk
+      tags:
+      - Business
+      summary: Get the rates for a specified list of currency pairs
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/c14f23b82bf37-get-rates-for-multiple-currency-pairs
+      parameters:
+      - name: currencyPairs
+        in: query
+        required: true
+        schema:
+          type: string
+        description: A comma separated list of currency pairs (eg. USDAUD,AUDUSD)
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessRatesBulkResponse'
+  /v1/business/users:
+    get:
+      operationId: get_v1_business_users
+      tags:
+      - Business
+      summary: Get all company users
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/a478fd9964236-get-all-company-users
+      parameters:
+      - name: includeAllStatuses
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to include users with any status
+      - name: status
+        in: query
+        required: true
+        schema:
+          type: string
+        description: 'A status to filter users by. Allowed values: ACTIVE, PENDING, ARCHIVED'
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this resource belongs to (UUID)
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessUsersResponse'
+  /v1/business/users/companies:
+    get:
+      operationId: get_v1_business_users_companies
+      tags:
+      - Business
+      summary: Get attached companies for user
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/8e223c8114ad4-get-attached-companies-for-user
+      parameters:
+      - name: status
+        in: query
+        required: true
+        schema:
+          type: string
+        description: A status to filter users by
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this resource belongs to
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessUsersCompaniesResponse'
+  /v1/business/users/current/permissions:
+    get:
+      operationId: get_v1_business_users_current_permissions
+      tags:
+      - Business
+      summary: Get current user's permissions for a company
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/0e914f73879b6-get-current-user-s-permissions-for-a-company
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this resource belongs to (uuid).
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: API Key for authentication.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessUsersCurrentPermissionsResponse'
+  /v1/business/users/validateEmail:
+    post:
+      operationId: post_v1_business_users_validateEmail
+      tags:
+      - Business
+      summary: Validates the email address for use with OFX.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/ebd21e4725b69-validate-email-address
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this resource belongs to
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: API Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessUsersValidateemailRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessUsersValidateemailResponse'
+  /v1/business/users/{userId}:
+    get:
+      operationId: get_v1_business_users_userId
+      tags:
+      - Business
+      summary: Get the user information.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/501ce108452a8-get-user
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this resource belongs to
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessUsersUseridResponse'
+  /v1/business/wallets:
+    get:
+      operationId: get_v1_business_wallets
+      tags:
+      - Business
+      summary: List wallets for the connected company.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/vlpe38tmpb0p3-list-wallets
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessWalletsResponse'
+    post:
+      operationId: post_v1_business_wallets
+      tags:
+      - Business
+      summary: Create a new wallet for the connected company.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/821n1gi7c7ogn-create-wallet
+      parameters:
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+        description: API Key authentication.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BusinessWalletsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BusinessWalletsResponse'
+  /v1/business/wallets/{walletId}:
+    get:
+      operationId: get_v1_business_wallets_walletId
+      tags:
+      - Business
+      summary: Get a wallet by wallet identifier.
+      x-source: https://api-docs.ofx.com/docs/ofx-ncp-apis/g1t5dyjnvus7z-get-wallet
+      parameters:
+      - name: walletId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: company-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: The id of the company this request is for.
+      - name: X-Correlation-Id
+        in: header
+        required: false
+        schema:
+          type: string
+        description: A unique identifier used to track and correlate a request across multiple services.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessWalletsWalletidResponse'
+components:
+  schemas:
+    GetV1BusinessBeneficiariesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of beneficiaries meeting the criteria provided.
+    PostV1BusinessBeneficiariesRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Top‑level JSON:API data object.
+        data.type:
+          type: string
+          description: 'Allowed value: beneficiaries.'
+        data.attributes:
+          type: object
+          description: Attributes of the beneficiary (e.g., entityType, companyName, name, paymentType, currency, address, accountName, accountNumber,
+            primaryRoutingCodeType, primaryRoutingCodeValue, bankDetails, email).
+      required:
+      - data
+      - data.type
+      - data.attributes
+    PostV1BusinessBeneficiariesResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: Successful creation of beneficiary.
+        '400':
+          type: string
+          description: Bad request.
+        '401':
+          type: string
+          description: Unauthorized.
+        '404':
+          type: string
+          description: Not found.
+        '422':
+          type: string
+          description: Unprocessable entity.
+        '500':
+          type: string
+          description: Server error.
+    GetV1BusinessBeneficiariesBankDetailsResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          description: required
+        bankName:
+          type: string
+        bankAddress:
+          type: string
+        bankCity:
+          type: string
+        bankPostCode:
+          type: string
+    GetV1BusinessBeneficiariesSchemaResponse:
+      type: object
+      properties:
+        listPaymentType:
+          type: array
+          description: List of payment types
+        requiredFields:
+          type: object
+          description: Required fields per property
+    PostV1BusinessBeneficiariesSearchRequest:
+      type: object
+      properties:
+        startDate:
+          type: string
+          description: The start date of the search
+        endDate:
+          type: string
+          description: The end date of the search
+        entityType:
+          type: string
+          description: The entity type of the recipient
+        searchTerm:
+          type: string
+          description: Searchable term for recipient search requests
+        index:
+          type: number
+          description: The page number to start your search from
+    PostV1BusinessBeneficiariesSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of recipients matching the requested search
+    PostV1BusinessBeneficiariesValidateRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: 'Type of validation request. Allowed value: RECIPIENT'
+        payload:
+          type: object
+          description: Beneficiary details to validate
+        payload.BeneficiaryName:
+          type: string
+          description: Name of the beneficiary
+        payload.Address:
+          type: string
+          description: Street address of the beneficiary
+        payload.City:
+          type: string
+          description: City of the beneficiary
+        payload.State:
+          type: string
+          description: State or province of the beneficiary
+        payload.BeneficiaryCountry:
+          type: string
+          description: Country code of the beneficiary (ISO 3166-1 alpha-2)
+      required:
+      - type
+      - payload
+      - payload.BeneficiaryName
+      - payload.BeneficiaryCountry
+    PostV1BusinessBeneficiariesValidateResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          description: Whether the beneficiary details are valid
+        errors:
+          type: array
+          description: List of validation errors. Empty array when validation is successful.
+        errors[].field:
+          type: string
+          description: Field that failed validation
+        errors[].message:
+          type: string
+          description: Validation error message
+    GetV1BusinessBeneficiariesBeneficiaryidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the beneficiary
+        name:
+          type: string
+        firstName:
+          type: string
+          description: First name of the beneficiary
+        lastName:
+          type: string
+          description: Last name of the beneficiary
+        companyName:
+          type: string
+        email:
+          type: string
+          description: Email of the beneficiary
+        currency:
+          type: string
+          description: Currency the beneficiary will receive
+        entityType:
+          type: string
+          description: Type of beneficiary
+        ABN:
+          type: string
+          description: Australian Business Number of this beneficiary
+        address:
+          type: string
+          description: The full address of the beneficiary
+        country:
+          type: string
+          description: Country where the beneficiary resides
+        state:
+          type: string
+          description: State where the beneficiary resides
+        city:
+          type: string
+          description: City where the beneficiary resides
+        postCode:
+          type: string
+          description: PostCode of the beneficiary's address
+        accountNumber:
+          type: string
+          description: The primary account number of the beneficiary
+        bankAccountHolderName:
+          type: string
+          description: The name on the bank account holder
+        paymentType:
+          type: string
+          description: The type of payment rail this beneficiary is using
+        payIdType:
+          type: string
+          description: If the payment type is payId, the type of payId the beneficiary is using
+        customerReferenceNumber:
+          type: string
+          description: BPAY customer reference number
+        bankCode:
+          type: string
+          description: The value for the institution/bank‑level code
+        bankCodeValue:
+          type: string
+          description: The actual routing value for the selected bankCodeType
+        bankCodeType:
+          type: string
+          description: The type of the bank code
+        bankInfo:
+          type: object
+          description: All the information about the bank account
+        BICSWIFT:
+          type: string
+          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
+        IBAN:
+          type: string
+          description: International Bank Account Number for this beneficiary, if applicable.
+        preferredXeroAccountCode:
+          type: string
+          description: The preferred xero account code for this beneficiary
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        status:
+          type: string
+          description: The status of the beneficiary
+        validatedAt:
+          type: string
+          description: UTC datetime of when the beneficiary was last validated
+    PatchV1BusinessBeneficiariesBeneficiaryidRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        data.type:
+          type: string
+          description: Resource type. Must be set to 'beneficiaries'.
+        data.attributes:
+          type: object
+        data.attributes.address:
+          type: object
+        data.attributes.address.address:
+          type: string
+        data.attributes.address.city:
+          type: string
+        data.attributes.address.postCode:
+          type: string
+        data.attributes.address.state:
+          type: string
+        data.attributes.address.country:
+          type: string
+        data.attributes.address.countryCode:
+          type: string
+        data.attributes.email:
+          type: string
+        data.attributes.name:
+          type: string
+        data.attributes.paymentInformation:
+          type: object
+        data.attributes.paymentInformation.accountName:
+          type: string
+        data.attributes.paymentInformation.accountNumber:
+          type: string
+        data.attributes.paymentInformation.bankDetails:
+          type: object
+        data.attributes.paymentInformation.bankDetails.address:
+          type: string
+        data.attributes.paymentInformation.bankDetails.city:
+          type: string
+        data.attributes.paymentInformation.bankDetails.postCode:
+          type: string
+        data.attributes.paymentInformation.bankDetails.country:
+          type: string
+        data.attributes.paymentInformation.bankDetails.countryCode:
+          type: string
+        data.attributes.paymentInformation.bankDetails.name:
+          type: string
+        data.attributes.paymentInformation.currency:
+          type: string
+        data.attributes.paymentInformation.primaryRoutingCodeType:
+          type: string
+        data.attributes.paymentInformation.primaryRoutingCodeValue:
+          type: string
+        data.attributes.entityType:
+          type: string
+        data.attributes.abn:
+          type: string
+        data.attributes.companyName:
+          type: string
+        data.attributes.paymentType:
+          type: string
+        data.attributes.status:
+          type: string
+      required:
+      - data
+      - data.type
+      - data.attributes
+    PatchV1BusinessBeneficiariesBeneficiaryidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the beneficiary
+        name:
+          type: string
+        firstName:
+          type: string
+          description: First name of the beneficiary
+        lastName:
+          type: string
+          description: Last name of the beneficiary
+        companyName:
+          type: string
+        email:
+          type: string
+          description: Email of the beneficiary
+        currency:
+          type: string
+          description: Currency the beneficiary will receive
+        entityType:
+          type: string
+          description: Type of beneficiary
+        ABN:
+          type: string
+          description: Australian Business Number of this beneficiary
+        address:
+          type: string
+          description: The full address of the beneficiary
+        country:
+          type: string
+          description: Country where the beneficiary resides
+        state:
+          type: string
+          description: State where the beneficiary resides
+        city:
+          type: string
+          description: City where the beneficiary resides
+        postCode:
+          type: string
+          description: PostCode of the beneficiary's address
+        accountNumber:
+          type: string
+          description: The primary account number of the beneficiary
+        bankAccountHolderName:
+          type: string
+          description: The name on the bank account holder
+        paymentType:
+          type: string
+          description: The type of payment rail this beneficiary is using
+        payIdType:
+          type: string
+          description: If the the payment type of the beneficiary is payId. This is the type of payId the beneficiary is using.
+        customerReferenceNumber:
+          type: string
+          description: BPAY customer reference number
+        bankCode:
+          type: string
+        bankCodeValue:
+          type: string
+        bankCodeType:
+          type: string
+        bankInfo:
+          type: object
+        BICSWIFT:
+          type: string
+          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
+        IBAN:
+          type: string
+          description: International Bank Account Number for this beneficiary, if applicable.
+        preferredXeroAccountCode:
+          type: string
+          description: The preferred xero account code for this beneficiary
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        status:
+          type: string
+          description: The status of the beneficiary
+        validatedAt:
+          type: string
+          description: UTC datetime of when the beneficiary was last validated
+    GetV1BusinessConversionsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of conversions matching the request input.
+        cursor:
+          type: string
+          description: Pagination cursor if the full response could not be returned in one call.
+    PostV1BusinessConversionsRequest:
+      type: object
+      properties:
+        quoteId:
+          type: string
+          description: UUID of the quote to use for the conversion
+        orderType:
+          type: string
+          description: For guaranteed rate conversions, must be either 'fixed' or 'spot'
+        paymentIds:
+          type: array
+          description: List of Payment ids associated with the conversion.
+        fundingMethod:
+          type: string
+          description: Fund by credit card or direct debit
+        cardId:
+          type: string
+          description: Identifier of the credit card when fundingMethod is credit card
+        method:
+          type: string
+          description: 'Funding method type, allowed value: creditCard'
+        paymentFee:
+          type: number
+          description: Fee to account for when conversion is linked to a payment with a fee
+      required:
+      - quoteId
+      - orderType
+    PostV1BusinessConversionsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the conversion
+        companyId:
+          type: string
+          description: UUID identifying the conversion's company
+        paymentIds:
+          type: array
+          description: Array of unique identifiers tying a conversion to Paytron payments.
+        forwardId:
+          type: string
+          description: UUID identifying the forward for a conversion, if applicable
+        fixedSide:
+          type: string
+          description: The side of the transaction that is fixed (buy or sell)
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute (yyyy-mm-dd)
+        latestSettlementDate:
+          type: string
+          description: The latest date that the conversion can be executed (yyyy-mm-dd)
+        delinquentDate:
+          type: string
+          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
+        fundingMethod:
+          type: string
+          description: Funding method used
+        cardId:
+          type: string
+          description: Card identifier when funded by credit card
+        method:
+          type: string
+          description: Funding method type
+        sellCurrency:
+          type: string
+          description: 3‑letter currency code of the sell currency
+        buyCurrency:
+          type: string
+          description: 3‑letter currency code of the buy currency
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime of creation
+        createdBy:
+          type: string
+          description: UUID of the creating user or client
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime of last update
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        amount:
+          type: number
+          description: The amount of currency to convert
+        status:
+          type: string
+          description: Current status of the conversion
+        orderType:
+          type: string
+          description: Order type (spot or fixed)
+    PostV1BusinessConversionsRateRequest:
+      type: object
+      properties:
+        buyCurrency:
+          type: string
+          description: 3 letter currency code of the buy currency
+        sellCurrency:
+          type: string
+          description: 3 letter currency code of the sell currency
+        fixedSide:
+          type: string
+          description: Which side of the conversion is being fixed
+        amount:
+          type: string
+          description: fixedSide buy — The amount of buyCurrency being bought; fixedSide sell — The amount of sellCurrency being sold
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute. Defaults to today.
+        rateDate:
+          type: string
+          description: The date to lock the FX rate for the conversion on. Defaults to conversionDate.
+      required:
+      - buyCurrency
+      - sellCurrency
+      - fixedSide
+      - amount
+    PostV1BusinessConversionsRateResponse:
+      type: object
+      properties:
+        buyCurrency:
+          type: string
+          description: 3 letter currency code of the buy currency
+        sellCurrency:
+          type: string
+          description: 3 letter currency code of the sell currency
+        fixedSide:
+          type: string
+          description: Which side of the conversion is being fixed
+        buyAmount:
+          type: string
+          description: Amount of buyCurrency being bought
+        sellAmount:
+          type: string
+          description: Amount of sellCurrency being sold
+        conversionDate:
+          type: string
+          description: The day the conversion, if created from this quote, will start trying to execute
+        ourRate:
+          type: string
+          description: The rate Paytron receives
+        yourRate:
+          type: string
+          description: The rate the customer receives
+        ourMargin:
+          type: string
+          description: The margin taken as a fee, represented as a percentage
+    GetV1BusinessConversionsConversionidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the conversion
+        companyId:
+          type: string
+          description: UUID identifying the conversion's company
+        paymentIds:
+          type: array
+          description: Array of unique identifiers tying a conversion to Paytron payments
+        forwardId:
+          type: string
+          description: UUID identifying the forward for a conversion
+        fixedSide:
+          type: string
+          description: The side of the transaction that is fixed (buy or sell)
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute (yyyy-mm-dd)
+        latestSettlementDate:
+          type: string
+          description: The latest date that the conversion can be executed (yyyy-mm-dd)
+        delinquentDate:
+          type: string
+          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
+        fundingMethod:
+          type: string
+          description: Funding method (e.g., Fund by credit card, Fund by direct debit)
+        cardId:
+          type: string
+          description: Card identifier when funding by credit card
+        method:
+          type: string
+          description: Funding method value (e.g., creditCard)
+        sellCurrency:
+          type: string
+          description: 3‑letter currency code of the sell currency
+        buyCurrency:
+          type: string
+          description: 3‑letter currency code of the buy currency
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime when the conversion was created
+        createdBy:
+          type: string
+          description: UUID of the creating user or client
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime when the conversion was last updated
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        links:
+          type: object
+          description: Links to related resources
+        cancellationCosts:
+          type: array
+          description: Cancellation cost links or objects
+        amount:
+          type: number
+          description: The amount of currency to convert
+        status:
+          type: string
+          description: Conversion status (e.g., NEEDS_APPROVAL, SCHEDULED, ...)
+        orderType:
+          type: string
+          description: Order type (e.g., spot)
+    GetV1BusinessRatesResponse:
+      type: object
+      properties:
+        base:
+          type: string
+          description: The company base currency
+        rates:
+          type: object
+          description: Currency codes as keys; value is units of that currency per one unit of the base currency.
+    GetV1BusinessRatesBulkResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of currency rates for all requested pairs
+        id:
+          type: string
+          description: Uniquely identifies this rate
+        sellCurrency:
+          type: string
+          description: The currency you are selling.
+        buyCurrency:
+          type: string
+          description: The currency you are buying.
+        createdAt:
+          type: string
+          description: ISO datetime the rate was retrieved.
+        validUntil:
+          type: string
+          description: ISO datetime at which the rate is no longer valid.
+        companyId:
+          type: string
+          description: The ID for the company whose margin is applied in the rate.
+        wholesaleRate:
+          type: number
+          description: The market rate obtained by Paytron.
+        retailRate:
+          type: number
+          description: The rate with the relevant company's markup applied.
+        indicative:
+          type: boolean
+          description: Whether the rate is indicative of the current rates or is a cached value.
+        status:
+          type: string
+          description: 'Allowed value: 200'
+    GetV1BusinessUsersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of Paytron User objects
+        next:
+          type: string
+          description: Pagination cursor
+    GetV1BusinessUsersCompaniesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Basic information about the company and the user's relationship (role/permissions) with the company.
+        next:
+          type: string
+          description: Auth
+    GetV1BusinessUsersCurrentPermissionsResponse:
+      type: object
+      properties:
+        companyId:
+          type: string
+        companyName:
+          type: string
+        companyBaseCurrency:
+          type: string
+        companyStatus:
+          type: string
+        acceptedMigrationTerms:
+          type: boolean
+        legalEntity:
+          type: string
+        timeZone:
+          type: string
+        userClear:
+          type: boolean
+        type:
+          type: string
+        permissions:
+          type: object
+          description: Company permissions
+        bookKeepingOrAccountingPractice:
+          type: boolean
+        countryCode:
+          type: string
+    PostV1BusinessUsersValidateemailRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email to be validated
+      required:
+      - email
+    PostV1BusinessUsersValidateemailResponse:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email validated by the platform
+        id:
+          type: string
+          description: The corresponding user id, if any
+        isValid:
+          type: boolean
+          description: The validation result, true for valid, false for invalid
+        isExisting:
+          type: boolean
+          description: Flag indicating a corresponding user account exists
+    GetV1BusinessUsersUseridResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The user ID
+        firstName:
+          type: string
+          description: The user's first name
+        middleName:
+          type: string
+          description: The user's middle name
+        lastName:
+          type: string
+          description: The user's last name
+        experianAddress:
+          type: string
+          description: The experian generated address for the user
+        addressStructured:
+          type: object
+          description: The user's structured address details
+        address:
+          type: string
+          description: The user's full address
+        city:
+          type: string
+          description: The user's city
+        postCode:
+          type: string
+          description: The user's post code
+        state:
+          type: string
+          description: The user's state or region
+        email:
+          type: string
+          description: The user's email
+        gender:
+          type: string
+          description: The user's gender
+        countryCode:
+          type: string
+          description: The 2 letter country code for the user
+        countryAreaCode:
+          type: string
+          description: The area code of the country e.g. (+61)
+        dateOfBirth:
+          type: string
+          description: The user's date of birth. Format('dd/MM/yyyy')
+        mobile:
+          type: string
+          description: The user's mobile number
+        F1APIEntityID:
+          type: string
+          description: The entity ID of the user inside FrankieOne when added via API
+        screeningStatus:
+          type: string
+          description: The screening status of the user as decided by FrankieOne
+        verifyIdentity:
+          type: string
+          description: The identity verification status of the user as decided by FrankieOne
+        onfidoApplicantId:
+          type: string
+          description: The Onfido applicant ID of the user
+        avatar:
+          type: string
+          description: The user's profile picture
+        referral:
+          type: string
+          description: How the user found Paytron
+        referralCode:
+          type: string
+          description: A referral code the user was given upon signing up
+        fromCurrency:
+          type: string
+          description: Primary transfer from currency
+        toCurrency:
+          type: string
+          description: Primary transfer to currency
+        transferRange:
+          type: string
+          description: Expected yearly transfer amount in local currency
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        notificationSettings:
+          type: object
+          description: Notification settings for the user
+        roleName:
+          type: string
+          description: The role name of the user in the company
+        supportRole:
+          type: string
+          description: If the user has a support/admin role. This is typically a Paytron customer support user.
+        permissions:
+          type: object
+          description: Company permissions
+        authorities:
+          type: array
+          description: User company authority permissions
+        userSource:
+          type: string
+          description: The authorization type of user.
+        marketingAgreement:
+          type: boolean
+          description: Whether the user grants consent for marketing emails
+        marketingAgreementAt:
+          type: string
+          description: When the user provided marketing consent, stored in ISO format
+        cid:
+          type: integer
+          description: Marketing campaign id
+        ofxUserAgreement:
+          type: boolean
+          description: The user must consent to OFX's user agreement policies
+        ofxUserAgreementAt:
+          type: string
+          description: When the user provided OFX agreement consent, stored in ISO format
+        serviceMessagesAgreement:
+          type: boolean
+          description: The user must consent to two-step verification messages and other important service messages
+        serviceMessagesAgreementAt:
+          type: string
+          description: The time that the user consented to two-step verification messages and other important service messages
+        advisorConsoleAgreement:
+          type: boolean
+          description: Has the user consented to the OFX advisor console agreement
+        advisorConsoleAgreementAt:
+          type: string
+          description: When the user provided OFX advisor console agreement consent, stored in ISO format
+        externalId:
+          type: string
+          description: User's id in an external system
+        externalUserName:
+          type: string
+          description: User's username in an external system
+        deviceConnected:
+          type: boolean
+          description: Whether the user has a connected device
+    GetV1BusinessWalletsResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: The list of wallets for this company.
+    PostV1BusinessWalletsRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: 'The type of wallet to create. Allowed value: multi.'
+        name:
+          type: string
+          description: Name of the wallet.
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+      required:
+      - type
+      - name
+      - currency
+    PostV1BusinessWalletsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this wallet.
+        walletNickname:
+          type: string
+          description: Optional name for this wallet.
+        currency:
+          type: string
+          description: The denoted currency for this wallet.
+        balance:
+          type: number
+          description: Total balance of this wallet, excluding inflight transactions.
+        availableBalance:
+          type: number
+          description: Available balance of this wallet, including inflight transactions.
+        bankDetails:
+          type: object
+          description: Banking details associated with a wallet.
+        additionalBankDetails:
+          type: array
+          description: Additional bank details for this wallet.
+        type:
+          type: string
+          description: Wallet type, e.g., currency.
+    GetV1BusinessWalletsWalletidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this wallet.
+        walletNickname:
+          type: string
+          description: Optional name for this wallet.
+        currency:
+          type: string
+          description: The denoted currency for this wallet.
+        balance:
+          type: number
+          description: Total balance of this wallet, excluding inflight transactions.
+        availableBalance:
+          type: number
+          description: Available balance of this wallet, including inflight transactions.
+        bankDetails:
+          type: object
+          description: Banking details associated with a wallet.
+        additionalBankDetails:
+          type: array
+          description: Additional bank details for this wallet.
+        type:
+          type: string
+          description: 'Allowed value: currency.'
+  securitySchemes:
+    OAuth_2.0:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: &id001
+            payments: ''
+        authorizationCode:
+          authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: *id001
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+tags:
+- name: Business
+security:
+- OAuth_2.0:
+  - payments

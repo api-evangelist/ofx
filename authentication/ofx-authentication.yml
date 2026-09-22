@@ -1,0 +1,22 @@
+generated: '2026-09-22'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+sources:
+- https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+- https://api-docs.ofx.com/docs/ofx-ncp-apis/mglx0acynko37-o-auth-2-0-setup-guide
+- https://api-docs.ofx.com/docs/payments-api/c338b3f76411d-introduction
+description: OAuth 2.0 authentication
+schemes:
+- type: oauth2
+  name: OAuth 2.0
+  evidence: OFX Payments API is protected by the industry standard OAuth2.0 protocol
+  flows:
+  - client_credentials
+  - authorization_code
+  token_url: https://sandbox.api.ofx.com/v1/oauth/token
+  authorize_url: https://sandbox.api.ofx.com/v1/oauth/authorize
+  scopes:
+  - payments
+  how_to_obtain: After registering your app you will receive a client_id and client_secret.
+docs: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication

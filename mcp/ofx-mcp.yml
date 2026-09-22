@@ -1,0 +1,125 @@
+generated: '2026-09-22'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_ae-authored/ofx-ncp-openapi-generated.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.ofx.com, beta.api.ofx.com, api-docs.ofx.com, www.ofx.com; verdict
+  opaque (https://beta.api.ofx.com/mcp answered 403: the edge authenticates before it routes, which proves nothing either way). Candidate tools
+  below are derived from the 22 operation(s) in the provider''s own OpenAPI (22 listed); they describe what a server WOULD expose, not one that
+  exists.'
+tools:
+- name: get_v1_business_beneficiaries
+  operationId: get_v1_business_beneficiaries
+  method: GET
+  path: /v1/business/beneficiaries
+  description: List beneficiaries for the connected company.
+- name: post_v1_business_beneficiaries
+  operationId: post_v1_business_beneficiaries
+  method: POST
+  path: /v1/business/beneficiaries
+  description: Create a new beneficiary for the connected company.
+- name: get_v1_business_beneficiaries_bank_details
+  operationId: get_v1_business_beneficiaries_bank_details
+  method: GET
+  path: /v1/business/beneficiaries/bank-details
+  description: Get bank details for connected company.
+- name: get_v1_business_beneficiaries_schema
+  operationId: get_v1_business_beneficiaries_schema
+  method: GET
+  path: /v1/business/beneficiaries/schema
+  description: List required details of the beneficiary.
+- name: post_v1_business_beneficiaries_search
+  operationId: post_v1_business_beneficiaries_search
+  method: POST
+  path: /v1/business/beneficiaries/search
+  description: Search recipients
+- name: post_v1_business_beneficiaries_validate
+  operationId: post_v1_business_beneficiaries_validate
+  method: POST
+  path: /v1/business/beneficiaries/validate
+  description: Validate beneficiary details before creation
+- name: get_v1_business_beneficiaries_beneficiary_id
+  operationId: get_v1_business_beneficiaries_beneficiaryId
+  method: GET
+  path: /v1/business/beneficiaries/{beneficiaryId}
+  description: Get a beneficiary by beneficiary identifier.
+- name: patch_v1_business_beneficiaries_beneficiary_id
+  operationId: patch_v1_business_beneficiaries_beneficiaryId
+  method: PATCH
+  path: /v1/business/beneficiaries/{beneficiaryId}
+  description: Update beneficiary by beneficiary identifier.
+- name: get_v1_business_conversions
+  operationId: get_v1_business_conversions
+  method: GET
+  path: /v1/business/conversions
+  description: List conversions within a connected OFX account.
+- name: post_v1_business_conversions
+  operationId: post_v1_business_conversions
+  method: POST
+  path: /v1/business/conversions
+  description: Create Conversion
+- name: post_v1_business_conversions_rate
+  operationId: post_v1_business_conversions_rate
+  method: POST
+  path: /v1/business/conversions/rate
+  description: Get Conversion Rate
+- name: get_v1_business_conversions_conversion_id
+  operationId: get_v1_business_conversions_conversionId
+  method: GET
+  path: /v1/business/conversions/{conversionId}
+  description: Get Conversion
+- name: get_v1_business_rates
+  operationId: get_v1_business_rates
+  method: GET
+  path: /v1/business/rates
+  description: Get the current currency rates for a company's base currency
+- name: get_v1_business_rates_bulk
+  operationId: get_v1_business_rates_bulk
+  method: GET
+  path: /v1/business/rates/bulk
+  description: Get the rates for a specified list of currency pairs
+- name: get_v1_business_users
+  operationId: get_v1_business_users
+  method: GET
+  path: /v1/business/users
+  description: Get all company users
+- name: get_v1_business_users_companies
+  operationId: get_v1_business_users_companies
+  method: GET
+  path: /v1/business/users/companies
+  description: Get attached companies for user
+- name: get_v1_business_users_current_permissions
+  operationId: get_v1_business_users_current_permissions
+  method: GET
+  path: /v1/business/users/current/permissions
+  description: Get current user's permissions for a company
+- name: post_v1_business_users_validate_email
+  operationId: post_v1_business_users_validateEmail
+  method: POST
+  path: /v1/business/users/validateEmail
+  description: Validates the email address for use with OFX.
+- name: get_v1_business_users_user_id
+  operationId: get_v1_business_users_userId
+  method: GET
+  path: /v1/business/users/{userId}
+  description: Get the user information.
+- name: get_v1_business_wallets
+  operationId: get_v1_business_wallets
+  method: GET
+  path: /v1/business/wallets
+  description: List wallets for the connected company.
+- name: post_v1_business_wallets
+  operationId: post_v1_business_wallets
+  method: POST
+  path: /v1/business/wallets
+  description: Create a new wallet for the connected company.
+- name: get_v1_business_wallets_wallet_id
+  operationId: get_v1_business_wallets_walletId
+  method: GET
+  path: /v1/business/wallets/{walletId}
+  description: Get a wallet by wallet identifier.

@@ -1,0 +1,22 @@
+generated: '2026-09-22'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.ofx.com/en-us/business/pricing/
+sources:
+- https://www.ofx.com/en-us/business/pricing/
+- https://api-docs.ofx.com/docs/ofx-ncp-apis/b2d03eec3a55d-get-payment-fees
+name: OFX pricing
+audience: business-product
+pricing_basis: per-seat
+plans:
+- name: Standard
+  price_text: $0 per user / month
+  price: 0
+  description: Manage and automate payments in 30+ currencies with a Global Business Account and Corporate Cards.
+- name: Full Suite
+  price_text: $75 per month (5 users included). $10 per user / month thereafter.
+  description: Enhanced controls and automation, plus advanced tools like approvals and spend management.
+- name: Custom
+  price_text: Custom Pricing
+  description: Designed to scale with your business. Over 50 users or high transaction volumes.
+docs: https://www.ofx.com/en-us/business/pricing/

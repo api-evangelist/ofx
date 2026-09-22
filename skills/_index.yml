@@ -1,0 +1,12 @@
+generated: '2026-09-22'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/_ae-authored/ofx-openapi-generated.yml
+skills:
+- file: skills/ofx-create-beneficiary.md
+  name: ofx-create-beneficiary
+  api: openapi/_ae-authored/ofx-openapi-generated.yml
+  operations:
+  - post_v1_business_beneficiaries_validate
+  - post_v1_business_beneficiaries
+  - get_v1_business_beneficiaries_beneficiaryId

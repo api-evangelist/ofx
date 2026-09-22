@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json",
+  "title": "GetOpenBankingV31PispDealDealidResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-pisp-openapi-generated.yml#/components/schemas/GetOpenBankingV31PispDealDealidResponse",
+  "type": "object",
+  "properties": {
+    "Deal": {
+      "type": "object",
+      "description": "Deal Details Read"
+    },
+    "Deal.DealId": {
+      "type": "string",
+      "description": "Unique identification of the created deal."
+    },
+    "Deal.DealType": {
+      "type": "string",
+      "description": "Specifies the type of the created deal"
+    },
+    "Deal.BuyCurrency": {
+      "type": "string",
+      "description": "Buy Currency"
+    },
+    "Deal.BuyAmount": {
+      "type": "number",
+      "description": "Buy Amount"
+    },
+    "Deal.SellCurrency": {
+      "type": "string",
+      "description": "Sell Currency"
+    },
+    "Deal.SellAmount": {
+      "type": "number",
+      "description": "Sell Amount"
+    },
+    "Deal.Rate": {
+      "type": "number",
+      "description": "Rate"
+    },
+    "Deal.Status": {
+      "type": "string",
+      "description": "Deal Status"
+    },
+    "Deal.Reference": {
+      "type": "string",
+      "description": "Reference"
+    },
+    "Deal.EnteredDate": {
+      "type": "string",
+      "description": "Deal entered date"
+    },
+    "Deal.MaturityDate": {
+      "type": "string",
+      "description": "Deal maturity date"
+    },
+    "Deal.Fee": {
+      "type": "number",
+      "description": "Deal fee"
+    },
+    "Deal.FeeCurrency": {
+      "type": "string",
+      "description": "Deal fee currency"
+    },
+    "Deal.BPayNumber": {
+      "type": "number",
+      "description": "BPay Number"
+    },
+    "Deal.DealBeneficiaries": {
+      "type": "array",
+      "description": "Deal Beneficiaries"
+    },
+    "Deal.StateInfo": {
+      "type": "object",
+      "description": "StateInfo"
+    }
+  }
+}

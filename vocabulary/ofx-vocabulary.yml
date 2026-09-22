@@ -1,0 +1,173 @@
+generated: '2026-09-22'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml
+vocabulary:
+  name: OFX Domain Vocabulary
+  description: 'Terms declared by OFX''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions. Derived,
+    not authored.'
+  version: '2026-09-22'
+  terms:
+  - term: GetV1BusinessBeneficiariesResponse
+    definition: 'Object declared by the contract with fields: data.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessBeneficiariesResponse
+  - term: PostV1BusinessBeneficiariesRequest
+    definition: 'Object declared by the contract with fields: data, data.type, data.attributes.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesRequest
+  - term: PostV1BusinessBeneficiariesResponse
+    definition: 'Object declared by the contract with fields: 200, 400, 401, 404, 422, 500.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesResponse
+  - term: GetV1BusinessBeneficiariesBankDetailsResponse
+    definition: 'Object declared by the contract with fields: isValid, bankName, bankAddress, bankCity, bankPostCode.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessBeneficiariesBankDetailsResponse
+  - term: GetV1BusinessBeneficiariesSchemaResponse
+    definition: 'Object declared by the contract with fields: listPaymentType, requiredFields.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessBeneficiariesSchemaResponse
+  - term: PostV1BusinessBeneficiariesSearchRequest
+    definition: 'Object declared by the contract with fields: startDate, endDate, entityType, searchTerm, index.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesSearchRequest
+  - term: PostV1BusinessBeneficiariesSearchResponse
+    definition: 'Object declared by the contract with fields: data.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesSearchResponse
+  - term: PostV1BusinessBeneficiariesValidateRequest
+    definition: 'Object declared by the contract with fields: type, payload, payload.BeneficiaryName, payload.Address, payload.City, payload.State,
+      payload.BeneficiaryCountry.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesValidateRequest
+  - term: PostV1BusinessBeneficiariesValidateResponse
+    definition: 'Object declared by the contract with fields: isValid, errors, errors[].field, errors[].message.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessBeneficiariesValidateResponse
+  - term: GetV1BusinessBeneficiariesBeneficiaryidResponse
+    definition: 'Object declared by the contract with fields: id, name, firstName, lastName, companyName, email, currency, entityType, ABN, address,
+      country, state. (19 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessBeneficiariesBeneficiaryidResponse
+  - term: PatchV1BusinessBeneficiariesBeneficiaryidRequest
+    definition: 'Object declared by the contract with fields: data, data.type, data.attributes, data.attributes.address, data.attributes.address.address,
+      data.attributes.address.city, data.attributes.address.postCode, data.attributes.address.state, data.attributes.address.country, data.attributes.address.countryCode,
+      data.attributes.email, data.attributes.name. (18 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidRequest
+  - term: PatchV1BusinessBeneficiariesBeneficiaryidResponse
+    definition: 'Object declared by the contract with fields: id, name, firstName, lastName, companyName, email, currency, entityType, ABN, address,
+      country, state. (19 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidResponse
+  - term: GetV1BusinessConversionsResponse
+    definition: 'Object declared by the contract with fields: data, cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessConversionsResponse
+  - term: PostV1BusinessConversionsRequest
+    definition: 'Object declared by the contract with fields: quoteId, orderType, paymentIds, fundingMethod, cardId, method, paymentFee.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessConversionsRequest
+  - term: PostV1BusinessConversionsResponse
+    definition: 'Object declared by the contract with fields: id, companyId, paymentIds, forwardId, fixedSide, conversionDate, latestSettlementDate,
+      delinquentDate, fundingMethod, cardId, method, sellCurrency. (8 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessConversionsResponse
+  - term: PostV1BusinessConversionsRateRequest
+    definition: 'Object declared by the contract with fields: buyCurrency, sellCurrency, fixedSide, amount, conversionDate, rateDate.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessConversionsRateRequest
+  - term: PostV1BusinessConversionsRateResponse
+    definition: 'Object declared by the contract with fields: buyCurrency, sellCurrency, fixedSide, buyAmount, sellAmount, conversionDate, ourRate,
+      yourRate, ourMargin.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessConversionsRateResponse
+  - term: GetV1BusinessConversionsConversionidResponse
+    definition: 'Object declared by the contract with fields: id, companyId, paymentIds, forwardId, fixedSide, conversionDate, latestSettlementDate,
+      delinquentDate, fundingMethod, cardId, method, sellCurrency. (10 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessConversionsConversionidResponse
+  - term: GetV1BusinessRatesResponse
+    definition: 'Object declared by the contract with fields: base, rates.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessRatesResponse
+  - term: GetV1BusinessRatesBulkResponse
+    definition: 'Object declared by the contract with fields: data, id, sellCurrency, buyCurrency, createdAt, validUntil, companyId, wholesaleRate,
+      retailRate, indicative, status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessRatesBulkResponse
+  - term: GetV1BusinessUsersResponse
+    definition: 'Object declared by the contract with fields: data, next.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessUsersResponse
+  - term: GetV1BusinessUsersCompaniesResponse
+    definition: 'Object declared by the contract with fields: data, next.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessUsersCompaniesResponse
+  - term: GetV1BusinessUsersCurrentPermissionsResponse
+    definition: 'Object declared by the contract with fields: companyId, companyName, companyBaseCurrency, companyStatus, acceptedMigrationTerms,
+      legalEntity, timeZone, userClear, type, permissions, bookKeepingOrAccountingPractice, countryCode.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessUsersCurrentPermissionsResponse
+  - term: PostV1BusinessUsersValidateemailRequest
+    definition: 'Object declared by the contract with fields: email.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessUsersValidateemailRequest
+  - term: PostV1BusinessUsersValidateemailResponse
+    definition: 'Object declared by the contract with fields: email, id, isValid, isExisting.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessUsersValidateemailResponse
+  - term: GetV1BusinessUsersUseridResponse
+    definition: 'Object declared by the contract with fields: id, firstName, middleName, lastName, experianAddress, addressStructured, address,
+      city, postCode, state, email, gender. (35 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessUsersUseridResponse
+  - term: GetV1BusinessWalletsResponse
+    definition: 'Object declared by the contract with fields: 200.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessWalletsResponse
+  - term: PostV1BusinessWalletsRequest
+    definition: 'Object declared by the contract with fields: type, name, currency.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessWalletsRequest
+  - term: PostV1BusinessWalletsResponse
+    definition: 'Object declared by the contract with fields: id, walletNickname, currency, balance, availableBalance, bankDetails, additionalBankDetails,
+      type.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/PostV1BusinessWalletsResponse
+  - term: GetV1BusinessWalletsWalletidResponse
+    definition: 'Object declared by the contract with fields: id, walletNickname, currency, balance, availableBalance, bankDetails, additionalBankDetails,
+      type.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ofx-ncp-openapi-generated.yml#/components/schemas/GetV1BusinessWalletsWalletidResponse

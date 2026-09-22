@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json",
+  "title": "GetV1BusinessConversionsConversionidResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-openapi-generated.yml#/components/schemas/GetV1BusinessConversionsConversionidResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "UUID identifying the conversion"
+    },
+    "companyId": {
+      "type": "string",
+      "description": "UUID identifying the conversion's company"
+    },
+    "paymentIds": {
+      "type": "array",
+      "description": "Array of unique identifiers tying a conversion to Paytron payments"
+    },
+    "forwardId": {
+      "type": "string",
+      "description": "UUID identifying the forward for a conversion"
+    },
+    "fixedSide": {
+      "type": "string",
+      "description": "The side of the transaction that is fixed (buy or sell)"
+    },
+    "conversionDate": {
+      "type": "string",
+      "description": "The day the conversion will start trying to execute (yyyy-mm-dd)"
+    },
+    "latestSettlementDate": {
+      "type": "string",
+      "description": "The latest date that the conversion can be executed (yyyy-mm-dd)"
+    },
+    "delinquentDate": {
+      "type": "string",
+      "description": "The business day the conversion will be considered delinquent (yyyy-mm-dd)"
+    },
+    "fundingMethod": {
+      "type": "string",
+      "description": "Funding method (e.g., Fund by credit card, Fund by direct debit)"
+    },
+    "cardId": {
+      "type": "string",
+      "description": "Card identifier when funding by credit card"
+    },
+    "method": {
+      "type": "string",
+      "description": "Funding method value (e.g., creditCard)"
+    },
+    "sellCurrency": {
+      "type": "string",
+      "description": "3‑letter currency code of the sell currency"
+    },
+    "buyCurrency": {
+      "type": "string",
+      "description": "3‑letter currency code of the buy currency"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "ISO 8601 UTC datetime when the conversion was created"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "UUID of the creating user or client"
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "ISO 8601 UTC datetime when the conversion was last updated"
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "UUID of the last updating user"
+    },
+    "links": {
+      "type": "object",
+      "description": "Links to related resources"
+    },
+    "cancellationCosts": {
+      "type": "array",
+      "description": "Cancellation cost links or objects"
+    },
+    "amount": {
+      "type": "number",
+      "description": "The amount of currency to convert"
+    },
+    "status": {
+      "type": "string",
+      "description": "Conversion status (e.g., NEEDS_APPROVAL, SCHEDULED, ...)"
+    },
+    "orderType": {
+      "type": "string",
+      "description": "Order type (e.g., spot)"
+    }
+  }
+}

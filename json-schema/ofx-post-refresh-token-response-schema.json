@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-post-refresh-token-response-schema.json",
+  "title": "PostRefreshTokenResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-aisp-openapi-generated.yml#/components/schemas/PostRefreshTokenResponse",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "refresh_token": {
+      "type": "string"
+    },
+    "refresh_token_expires_in": {
+      "type": "integer"
+    },
+    "token_type": {
+      "type": "string"
+    }
+  }
+}

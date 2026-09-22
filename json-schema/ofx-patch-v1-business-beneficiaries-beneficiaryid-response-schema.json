@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json",
+  "title": "PatchV1BusinessBeneficiariesBeneficiaryidResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-openapi-generated.yml#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "UUID identifying the beneficiary"
+    },
+    "name": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of the beneficiary"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the beneficiary"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email of the beneficiary"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency the beneficiary will receive"
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Type of beneficiary"
+    },
+    "ABN": {
+      "type": "string",
+      "description": "Australian Business Number of this beneficiary"
+    },
+    "address": {
+      "type": "string",
+      "description": "The full address of the beneficiary"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the beneficiary resides"
+    },
+    "state": {
+      "type": "string",
+      "description": "State where the beneficiary resides"
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the beneficiary resides"
+    },
+    "postCode": {
+      "type": "string",
+      "description": "PostCode of the beneficiary's address"
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "The primary account number of the beneficiary"
+    },
+    "bankAccountHolderName": {
+      "type": "string",
+      "description": "The name on the bank account holder"
+    },
+    "paymentType": {
+      "type": "string",
+      "description": "The type of payment rail this beneficiary is using"
+    },
+    "payIdType": {
+      "type": "string",
+      "description": "If the the payment type of the beneficiary is payId. This is the type of payId the beneficiary is using."
+    },
+    "customerReferenceNumber": {
+      "type": "string",
+      "description": "BPAY customer reference number"
+    },
+    "bankCode": {
+      "type": "string"
+    },
+    "bankCodeValue": {
+      "type": "string"
+    },
+    "bankCodeType": {
+      "type": "string"
+    },
+    "bankInfo": {
+      "type": "object"
+    },
+    "BICSWIFT": {
+      "type": "string",
+      "description": "Bank Identifier Code / SWIFT code for this beneficiary, if applicable."
+    },
+    "IBAN": {
+      "type": "string",
+      "description": "International Bank Account Number for this beneficiary, if applicable."
+    },
+    "preferredXeroAccountCode": {
+      "type": "string",
+      "description": "The preferred xero account code for this beneficiary"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "ISO 8601 UTC datetime"
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "ISO 8601 UTC datetime"
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "UUID of the last updating user"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the beneficiary"
+    },
+    "validatedAt": {
+      "type": "string",
+      "description": "UTC datetime of when the beneficiary was last validated"
+    }
+  }
+}

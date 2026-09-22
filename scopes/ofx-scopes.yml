@@ -1,0 +1,47 @@
+generated: '2026-09-22'
+method: derived
+source: openapi/ofx-aisp-openapi-generated.yml, openapi/ofx-ncp-openapi-generated.yml, openapi/ofx-pisp-openapi-generated.yml,
+  openapi/ofx-rates-openapi-generated.yml
+schemes:
+- name: OAuth_2.0
+  source: openapi/ofx-aisp-openapi-generated.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+- name: OAuth_2.0
+  source: openapi/ofx-ncp-openapi-generated.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+- name: OAuth_2.0
+  source: openapi/ofx-pisp-openapi-generated.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+- name: OAuth_2.0
+  source: openapi/ofx-rates-openapi-generated.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+    tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+scopes:
+- scope: payments
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/ofx-aisp-openapi-generated.yml
+  - openapi/ofx-ncp-openapi-generated.yml
+  - openapi/ofx-pisp-openapi-generated.yml
+  - openapi/ofx-rates-openapi-generated.yml

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json",
+  "title": "GetOpenBankingV31AispAccountsResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-aisp-openapi-generated.yml#/components/schemas/GetOpenBankingV31AispAccountsResponse",
+  "type": "object",
+  "properties": {
+    "Data": {
+      "type": "object",
+      "description": "Accounts Read"
+    },
+    "Data.Account": {
+      "type": "array",
+      "description": "Account"
+    },
+    "Links": {
+      "type": "object",
+      "description": "Links relevant to the payload"
+    },
+    "Links.Self": {
+      "type": "string",
+      "description": "required"
+    },
+    "Links.First": {
+      "type": "string"
+    },
+    "Links.Prev": {
+      "type": "string"
+    },
+    "Links.Next": {
+      "type": "string"
+    },
+    "Links.Last": {
+      "type": "string"
+    },
+    "Meta": {
+      "type": "object",
+      "description": "Meta Data relevant to the payload"
+    },
+    "Meta.TotalPages": {
+      "type": "integer"
+    }
+  }
+}

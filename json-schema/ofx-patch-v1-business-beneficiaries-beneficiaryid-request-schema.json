@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json",
+  "title": "PatchV1BusinessBeneficiariesBeneficiaryidRequest",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-openapi-generated.yml#/components/schemas/PatchV1BusinessBeneficiariesBeneficiaryidRequest",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object"
+    },
+    "data.type": {
+      "type": "string",
+      "description": "Resource type. Must be set to 'beneficiaries'."
+    },
+    "data.attributes": {
+      "type": "object"
+    },
+    "data.attributes.address": {
+      "type": "object"
+    },
+    "data.attributes.address.address": {
+      "type": "string"
+    },
+    "data.attributes.address.city": {
+      "type": "string"
+    },
+    "data.attributes.address.postCode": {
+      "type": "string"
+    },
+    "data.attributes.address.state": {
+      "type": "string"
+    },
+    "data.attributes.address.country": {
+      "type": "string"
+    },
+    "data.attributes.address.countryCode": {
+      "type": "string"
+    },
+    "data.attributes.email": {
+      "type": "string"
+    },
+    "data.attributes.name": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation": {
+      "type": "object"
+    },
+    "data.attributes.paymentInformation.accountName": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.accountNumber": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails": {
+      "type": "object"
+    },
+    "data.attributes.paymentInformation.bankDetails.address": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails.city": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails.postCode": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails.country": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails.countryCode": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.bankDetails.name": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.currency": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.primaryRoutingCodeType": {
+      "type": "string"
+    },
+    "data.attributes.paymentInformation.primaryRoutingCodeValue": {
+      "type": "string"
+    },
+    "data.attributes.entityType": {
+      "type": "string"
+    },
+    "data.attributes.abn": {
+      "type": "string"
+    },
+    "data.attributes.companyName": {
+      "type": "string"
+    },
+    "data.attributes.paymentType": {
+      "type": "string"
+    },
+    "data.attributes.status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "data.type",
+    "data.attributes"
+  ]
+}

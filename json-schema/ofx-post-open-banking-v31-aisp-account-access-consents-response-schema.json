@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json",
+  "title": "PostOpenBankingV31AispAccountAccessConsentsResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-aisp-openapi-generated.yml#/components/schemas/PostOpenBankingV31AispAccountAccessConsentsResponse",
+  "type": "object",
+  "properties": {
+    "201": {
+      "type": "string",
+      "description": "Account Access Consents Created"
+    },
+    "400": {
+      "type": "string",
+      "description": "Bad Request"
+    },
+    "401": {
+      "type": "string",
+      "description": "Unauthorized"
+    },
+    "403": {
+      "type": "string",
+      "description": "Forbidden"
+    },
+    "404": {
+      "type": "string",
+      "description": "Not Found"
+    },
+    "429": {
+      "type": "string",
+      "description": "Too Many Requests"
+    },
+    "500": {
+      "type": "string",
+      "description": "Internal Server Error"
+    }
+  }
+}

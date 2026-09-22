@@ -1,23 +1,151 @@
 aid: ofx
 name: OFX
-description: 'OFX is a company surfaced via the API Evangelist harvest backlog (source: payments) and
-  added to the network as a stub for full-pipeline profiling.'
+image: https://www.ofx.com/wp-content/uploads/2025/12/one-financial-platform-for-your-business-us-1024x858.png
+description: OFX provides a global money transfer platform enabling businesses and individuals to send payments in over 30 currencies to 180+
+  countries. It offers corporate cards, multi‑currency accounts, FX solutions, and integrated tools for accounting software like QuickBooks and
+  Xero. The service includes spend management, fraud prevention, and a control hub for approvals and budgeting, catering to both personal and
+  business financial needs.
 url: https://raw.githubusercontent.com/api-evangelist/ofx/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:payments
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-22 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-09-22'
 modified: '2026-09-22'
 tags:
 - Company
-apis: []
+- Payments
+- Money-Transfer
+- FinTech
+- Banking
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: OAuthScopes
+  url: scopes/ofx-scopes.yml
+- type: Authentication
+  url: authentication/ofx-authentication.yml
+- type: RateLimits
+  url: rate-limits/ofx-rate-limits.yml
+- type: Plans
+  url: plans/ofx-plans-pricing.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: GettingStarted
+  url: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjQ1Mg-introduction
+- type: Documentation
+  url: https://api-docs.ofx.com/
+- type: Spectral
+  url: rules/ofx-rules.yml
+- type: JSONLD
+  url: json-ld/ofx-context.jsonld
+- type: Vocabulary
+  url: vocabulary/ofx-vocabulary.yml
+- type: DataModel
+  url: data-model/ofx-data-model.yml
+- type: Conformance
+  url: conformance/ofx-conformance.yml
+- type: WellKnown
+  url: well-known/ofx-well-known.yml
+- type: Security
+  url: https://www.ofx.com/en-us/security/
+- type: PrivacyPolicy
+  url: https://www.ofx.com/en-us/legal/privacy-policy/
+- type: Login
+  url: https://login.ofx.com/login
+- type: DeveloperPortal
+  url: https://developer.ofx.com/
+- type: DomainSecurity
+  url: security/ofx-domain-security.yml
 - type: Website
-  url: https://ofx.com/
+  url: https://www.ofx.com/en-us/
+- type: Blog
+  url: https://www.ofx.com/en-us/blog/
+- type: Pricing
+  url: https://www.ofx.com/en-us/business/pricing/
+- type: Support
+  url: https://www.ofx.com/en-us/business/help/
+apis:
+- aid: ofx:aisp-api
+  name: OFX AISP API
+  description: 'OFX AISP API as documented publicly: 8 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
+    the provider''s own document.'
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/ofx-aisp-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+- aid: ofx:ncp-api
+  name: OFX NCP API
+  description: 'OFX NCP API as documented publicly: 22 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
+    the provider''s own document.'
+  humanURL: https://api-docs.ofx.com/docs/ofx-ncp-apis
+  baseURL: https://beta.api.ofx.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/ofx-ncp-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+- aid: ofx:pisp-api
+  name: OFX PISP API
+  description: 'OFX PISP API as documented publicly: 3 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
+    the provider''s own document.'
+  humanURL: https://api-docs.ofx.com/docs/pisp-api
+  baseURL: https://beta.api.ofx.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/ofx-pisp-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+- aid: ofx:rates-api
+  name: OFX Rates API
+  description: 'OFX Rates API as documented publicly: 3 operations. Contract generated from the documentation by API Evangelist (2026-09-22);
+    not the provider''s own document.'
+  humanURL: https://api-docs.ofx.com/docs/rates-api
+  baseURL: https://beta.api.ofx.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/ofx-rates-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+x-enrichment:
+  date: '2026-09-22'
+  status: enriched
+  artifacts_added: 17
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local

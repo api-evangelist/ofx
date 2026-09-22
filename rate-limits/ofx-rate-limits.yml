@@ -1,0 +1,22 @@
+generated: '2026-09-22'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2ODY1-quota
+sources:
+- https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2ODY1-quota
+- https://api-docs.ofx.com/docs/pisp-api/ZG9jOjM3NTQ2ODY1-quota
+name: OFX rate limits
+limits:
+- name: AISP restricted quota
+  limit_text: four API calls in a 24 hour time period
+  max: 4
+  window: 24 hour time period
+  scope: All AISP APIs except 'Account Access'
+  endpoint: production
+- name: PISP restricted quota
+  limit_text: four API calls in a 24 hour time period
+  max: 4
+  window: 24 hour time period
+  scope: PISP 'Get Deal Details' API
+  endpoint: production
+docs: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2ODY1-quota

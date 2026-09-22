@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json",
+  "title": "GetV1OfxratesFromcurrencyTocurrencyAmountResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-rates-openapi-generated.yml#/components/schemas/GetV1OfxratesFromcurrencyTocurrencyAmountResponse",
+  "type": "object",
+  "properties": {
+    "ofxRate": {
+      "type": "number",
+      "description": "Current OFX rate for the conversion."
+    },
+    "inverseOfxRate": {
+      "type": "number",
+      "description": "Current inverse OFX rate for the conversion."
+    },
+    "convertedAmount": {
+      "type": "number",
+      "description": "Converted input amount based on from and to currency type."
+    }
+  }
+}

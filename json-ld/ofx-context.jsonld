@@ -1,0 +1,894 @@
+{
+  "@context": {
+    "@vocab": "https://ofx.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ofx": "https://ofx.com/schema#",
+    "PostAuthorizationCodeResponse": "ofx:PostAuthorizationCodeResponse",
+    "Location": {
+      "@id": "ofx:Location",
+      "@type": "xsd:string"
+    },
+    "GetAuthorizeResponse": "ofx:GetAuthorizeResponse",
+    "PostOpenBankingV31AispAccountAccessConsentsRequest": "ofx:PostOpenBankingV31AispAccountAccessConsentsRequest",
+    "Data": {
+      "@id": "ofx:Data"
+    },
+    "Data.Permissions": {
+      "@id": "ofx:Data.Permissions",
+      "@container": "@list"
+    },
+    "Data.ExpirationDateTime": {
+      "@id": "ofx:Data.ExpirationDateTime",
+      "@type": "xsd:string"
+    },
+    "Data.TransactionFromDateTime": {
+      "@id": "ofx:Data.TransactionFromDateTime",
+      "@type": "xsd:string"
+    },
+    "Data.TransactionToDateTime": {
+      "@id": "ofx:Data.TransactionToDateTime",
+      "@type": "xsd:string"
+    },
+    "Risk": {
+      "@id": "ofx:Risk"
+    },
+    "PostOpenBankingV31AispAccountAccessConsentsResponse": "ofx:PostOpenBankingV31AispAccountAccessConsentsResponse",
+    "GetOpenBankingV31AispAccountsResponse": "ofx:GetOpenBankingV31AispAccountsResponse",
+    "Data.Account": {
+      "@id": "ofx:Data.Account",
+      "@container": "@list"
+    },
+    "Links": {
+      "@id": "ofx:Links"
+    },
+    "Links.Self": {
+      "@id": "ofx:Links.Self",
+      "@type": "xsd:string"
+    },
+    "Links.First": {
+      "@id": "ofx:Links.First",
+      "@type": "xsd:string"
+    },
+    "Links.Prev": {
+      "@id": "ofx:Links.Prev",
+      "@type": "xsd:string"
+    },
+    "Links.Next": {
+      "@id": "ofx:Links.Next",
+      "@type": "xsd:string"
+    },
+    "Links.Last": {
+      "@id": "ofx:Links.Last",
+      "@type": "xsd:string"
+    },
+    "Meta": {
+      "@id": "ofx:Meta"
+    },
+    "Meta.TotalPages": {
+      "@id": "ofx:Meta.TotalPages",
+      "@type": "xsd:integer"
+    },
+    "GetOpenBankingV31PispDealDealidResponse": "ofx:GetOpenBankingV31PispDealDealidResponse",
+    "Deal": {
+      "@id": "ofx:Deal"
+    },
+    "Deal.DealId": {
+      "@id": "ofx:Deal.DealId",
+      "@type": "xsd:string"
+    },
+    "Deal.DealType": {
+      "@id": "ofx:Deal.DealType",
+      "@type": "xsd:string"
+    },
+    "Deal.BuyCurrency": {
+      "@id": "ofx:Deal.BuyCurrency",
+      "@type": "xsd:string"
+    },
+    "Deal.BuyAmount": {
+      "@id": "ofx:Deal.BuyAmount",
+      "@type": "xsd:decimal"
+    },
+    "Deal.SellCurrency": {
+      "@id": "ofx:Deal.SellCurrency",
+      "@type": "xsd:string"
+    },
+    "Deal.SellAmount": {
+      "@id": "ofx:Deal.SellAmount",
+      "@type": "xsd:decimal"
+    },
+    "Deal.Rate": {
+      "@id": "ofx:Deal.Rate",
+      "@type": "xsd:decimal"
+    },
+    "Deal.Status": {
+      "@id": "ofx:Deal.Status",
+      "@type": "xsd:string"
+    },
+    "Deal.Reference": {
+      "@id": "ofx:Deal.Reference",
+      "@type": "xsd:string"
+    },
+    "Deal.EnteredDate": {
+      "@id": "ofx:Deal.EnteredDate",
+      "@type": "xsd:string"
+    },
+    "Deal.MaturityDate": {
+      "@id": "ofx:Deal.MaturityDate",
+      "@type": "xsd:string"
+    },
+    "Deal.Fee": {
+      "@id": "ofx:Deal.Fee",
+      "@type": "xsd:decimal"
+    },
+    "Deal.FeeCurrency": {
+      "@id": "ofx:Deal.FeeCurrency",
+      "@type": "xsd:string"
+    },
+    "Deal.BPayNumber": {
+      "@id": "ofx:Deal.BPayNumber",
+      "@type": "xsd:decimal"
+    },
+    "Deal.DealBeneficiaries": {
+      "@id": "ofx:Deal.DealBeneficiaries",
+      "@container": "@list"
+    },
+    "Deal.StateInfo": {
+      "@id": "ofx:Deal.StateInfo"
+    },
+    "PostOpenBankingV31PispPaymentConsentRequest": "ofx:PostOpenBankingV31PispPaymentConsentRequest",
+    "Currency": {
+      "@id": "ofx:Currency",
+      "@type": "xsd:string"
+    },
+    "Amount": {
+      "@id": "ofx:Amount",
+      "@type": "xsd:integer"
+    },
+    "PostOpenBankingV31PispPaymentConsentResponse": "ofx:PostOpenBankingV31PispPaymentConsentResponse",
+    "ConsentId": {
+      "@id": "ofx:ConsentId",
+      "@type": "xsd:string"
+    },
+    "Status": {
+      "@id": "ofx:Status",
+      "@type": "xsd:string"
+    },
+    "StatusUpdateDateTime": {
+      "@id": "ofx:StatusUpdateDateTime",
+      "@type": "xsd:string"
+    },
+    "CreationDateTime": {
+      "@id": "ofx:CreationDateTime",
+      "@type": "xsd:string"
+    },
+    "PostRefreshTokenRequest": "ofx:PostRefreshTokenRequest",
+    "grant_type": {
+      "@id": "ofx:grant_type",
+      "@type": "xsd:string"
+    },
+    "refresh_token": {
+      "@id": "ofx:refresh_token",
+      "@type": "xsd:string"
+    },
+    "client_id": {
+      "@id": "ofx:client_id",
+      "@type": "xsd:string"
+    },
+    "client_secret": {
+      "@id": "ofx:client_secret",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "ofx:scope",
+      "@type": "xsd:string"
+    },
+    "PostRefreshTokenResponse": "ofx:PostRefreshTokenResponse",
+    "access_token": {
+      "@id": "ofx:access_token",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "ofx:expires_in",
+      "@type": "xsd:integer"
+    },
+    "refresh_token_expires_in": {
+      "@id": "ofx:refresh_token_expires_in",
+      "@type": "xsd:integer"
+    },
+    "token_type": {
+      "@id": "ofx:token_type",
+      "@type": "xsd:string"
+    },
+    "PostTokenRequest": "ofx:PostTokenRequest",
+    "PostTokenResponse": "ofx:PostTokenResponse",
+    "GetV1BusinessBeneficiariesResponse": "ofx:GetV1BusinessBeneficiariesResponse",
+    "data": {
+      "@id": "ofx:data",
+      "@container": "@list"
+    },
+    "PostV1BusinessBeneficiariesRequest": "ofx:PostV1BusinessBeneficiariesRequest",
+    "data.type": {
+      "@id": "ofx:data.type",
+      "@type": "xsd:string"
+    },
+    "data.attributes": {
+      "@id": "ofx:data.attributes"
+    },
+    "PostV1BusinessBeneficiariesResponse": "ofx:PostV1BusinessBeneficiariesResponse",
+    "GetV1BusinessBeneficiariesBankDetailsResponse": "ofx:GetV1BusinessBeneficiariesBankDetailsResponse",
+    "isValid": {
+      "@id": "ofx:isValid",
+      "@type": "xsd:boolean"
+    },
+    "bankName": {
+      "@id": "ofx:bankName",
+      "@type": "xsd:string"
+    },
+    "bankAddress": {
+      "@id": "ofx:bankAddress",
+      "@type": "xsd:string"
+    },
+    "bankCity": {
+      "@id": "ofx:bankCity",
+      "@type": "xsd:string"
+    },
+    "bankPostCode": {
+      "@id": "ofx:bankPostCode",
+      "@type": "xsd:string"
+    },
+    "GetV1BusinessBeneficiariesSchemaResponse": "ofx:GetV1BusinessBeneficiariesSchemaResponse",
+    "listPaymentType": {
+      "@id": "ofx:listPaymentType",
+      "@container": "@list"
+    },
+    "requiredFields": {
+      "@id": "ofx:requiredFields"
+    },
+    "PostV1BusinessBeneficiariesSearchRequest": "ofx:PostV1BusinessBeneficiariesSearchRequest",
+    "startDate": {
+      "@id": "ofx:startDate",
+      "@type": "xsd:string"
+    },
+    "endDate": {
+      "@id": "ofx:endDate",
+      "@type": "xsd:string"
+    },
+    "entityType": {
+      "@id": "ofx:entityType",
+      "@type": "xsd:string"
+    },
+    "searchTerm": {
+      "@id": "ofx:searchTerm",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "ofx:index",
+      "@type": "xsd:decimal"
+    },
+    "PostV1BusinessBeneficiariesSearchResponse": "ofx:PostV1BusinessBeneficiariesSearchResponse",
+    "PostV1BusinessBeneficiariesValidateRequest": "ofx:PostV1BusinessBeneficiariesValidateRequest",
+    "type": {
+      "@id": "ofx:type",
+      "@type": "xsd:string"
+    },
+    "payload": {
+      "@id": "ofx:payload"
+    },
+    "payload.BeneficiaryName": {
+      "@id": "ofx:payload.BeneficiaryName",
+      "@type": "xsd:string"
+    },
+    "payload.Address": {
+      "@id": "ofx:payload.Address",
+      "@type": "xsd:string"
+    },
+    "payload.City": {
+      "@id": "ofx:payload.City",
+      "@type": "xsd:string"
+    },
+    "payload.State": {
+      "@id": "ofx:payload.State",
+      "@type": "xsd:string"
+    },
+    "payload.BeneficiaryCountry": {
+      "@id": "ofx:payload.BeneficiaryCountry",
+      "@type": "xsd:string"
+    },
+    "PostV1BusinessBeneficiariesValidateResponse": "ofx:PostV1BusinessBeneficiariesValidateResponse",
+    "errors": {
+      "@id": "ofx:errors",
+      "@container": "@list"
+    },
+    "GetV1BusinessBeneficiariesBeneficiaryidResponse": "ofx:GetV1BusinessBeneficiariesBeneficiaryidResponse",
+    "id": {
+      "@id": "ofx:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "ofx:name",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "ofx:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "ofx:lastName",
+      "@type": "xsd:string"
+    },
+    "companyName": {
+      "@id": "ofx:companyName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "ofx:email",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "ofx:currency",
+      "@type": "xsd:string"
+    },
+    "ABN": {
+      "@id": "ofx:ABN",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "ofx:address",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "ofx:country",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "ofx:state",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "ofx:city",
+      "@type": "xsd:string"
+    },
+    "postCode": {
+      "@id": "ofx:postCode",
+      "@type": "xsd:string"
+    },
+    "accountNumber": {
+      "@id": "ofx:accountNumber",
+      "@type": "xsd:string"
+    },
+    "bankAccountHolderName": {
+      "@id": "ofx:bankAccountHolderName",
+      "@type": "xsd:string"
+    },
+    "paymentType": {
+      "@id": "ofx:paymentType",
+      "@type": "xsd:string"
+    },
+    "payIdType": {
+      "@id": "ofx:payIdType",
+      "@type": "xsd:string"
+    },
+    "customerReferenceNumber": {
+      "@id": "ofx:customerReferenceNumber",
+      "@type": "xsd:string"
+    },
+    "bankCode": {
+      "@id": "ofx:bankCode",
+      "@type": "xsd:string"
+    },
+    "bankCodeValue": {
+      "@id": "ofx:bankCodeValue",
+      "@type": "xsd:string"
+    },
+    "bankCodeType": {
+      "@id": "ofx:bankCodeType",
+      "@type": "xsd:string"
+    },
+    "bankInfo": {
+      "@id": "ofx:bankInfo"
+    },
+    "BICSWIFT": {
+      "@id": "ofx:BICSWIFT",
+      "@type": "xsd:string"
+    },
+    "IBAN": {
+      "@id": "ofx:IBAN",
+      "@type": "xsd:string"
+    },
+    "preferredXeroAccountCode": {
+      "@id": "ofx:preferredXeroAccountCode",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "ofx:createdAt",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "ofx:updatedAt",
+      "@type": "xsd:string"
+    },
+    "updatedBy": {
+      "@id": "ofx:updatedBy",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "ofx:status",
+      "@type": "xsd:string"
+    },
+    "validatedAt": {
+      "@id": "ofx:validatedAt",
+      "@type": "xsd:string"
+    },
+    "PatchV1BusinessBeneficiariesBeneficiaryidRequest": "ofx:PatchV1BusinessBeneficiariesBeneficiaryidRequest",
+    "data.attributes.address": {
+      "@id": "ofx:data.attributes.address"
+    },
+    "data.attributes.address.address": {
+      "@id": "ofx:data.attributes.address.address",
+      "@type": "xsd:string"
+    },
+    "data.attributes.address.city": {
+      "@id": "ofx:data.attributes.address.city",
+      "@type": "xsd:string"
+    },
+    "data.attributes.address.postCode": {
+      "@id": "ofx:data.attributes.address.postCode",
+      "@type": "xsd:string"
+    },
+    "data.attributes.address.state": {
+      "@id": "ofx:data.attributes.address.state",
+      "@type": "xsd:string"
+    },
+    "data.attributes.address.country": {
+      "@id": "ofx:data.attributes.address.country",
+      "@type": "xsd:string"
+    },
+    "data.attributes.address.countryCode": {
+      "@id": "ofx:data.attributes.address.countryCode",
+      "@type": "xsd:string"
+    },
+    "data.attributes.email": {
+      "@id": "ofx:data.attributes.email",
+      "@type": "xsd:string"
+    },
+    "data.attributes.name": {
+      "@id": "ofx:data.attributes.name",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation": {
+      "@id": "ofx:data.attributes.paymentInformation"
+    },
+    "data.attributes.paymentInformation.accountName": {
+      "@id": "ofx:data.attributes.paymentInformation.accountName",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.accountNumber": {
+      "@id": "ofx:data.attributes.paymentInformation.accountNumber",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails"
+    },
+    "data.attributes.paymentInformation.bankDetails.address": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.address",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails.city": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.city",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails.postCode": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.postCode",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails.country": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.country",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails.countryCode": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.countryCode",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.bankDetails.name": {
+      "@id": "ofx:data.attributes.paymentInformation.bankDetails.name",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.currency": {
+      "@id": "ofx:data.attributes.paymentInformation.currency",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.primaryRoutingCodeType": {
+      "@id": "ofx:data.attributes.paymentInformation.primaryRoutingCodeType",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentInformation.primaryRoutingCodeValue": {
+      "@id": "ofx:data.attributes.paymentInformation.primaryRoutingCodeValue",
+      "@type": "xsd:string"
+    },
+    "data.attributes.entityType": {
+      "@id": "ofx:data.attributes.entityType",
+      "@type": "xsd:string"
+    },
+    "data.attributes.abn": {
+      "@id": "ofx:data.attributes.abn",
+      "@type": "xsd:string"
+    },
+    "data.attributes.companyName": {
+      "@id": "ofx:data.attributes.companyName",
+      "@type": "xsd:string"
+    },
+    "data.attributes.paymentType": {
+      "@id": "ofx:data.attributes.paymentType",
+      "@type": "xsd:string"
+    },
+    "data.attributes.status": {
+      "@id": "ofx:data.attributes.status",
+      "@type": "xsd:string"
+    },
+    "PatchV1BusinessBeneficiariesBeneficiaryidResponse": "ofx:PatchV1BusinessBeneficiariesBeneficiaryidResponse",
+    "GetV1BusinessConversionsResponse": "ofx:GetV1BusinessConversionsResponse",
+    "cursor": {
+      "@id": "ofx:cursor",
+      "@type": "xsd:string"
+    },
+    "PostV1BusinessConversionsRequest": "ofx:PostV1BusinessConversionsRequest",
+    "quoteId": {
+      "@id": "ofx:quoteId",
+      "@type": "xsd:string"
+    },
+    "orderType": {
+      "@id": "ofx:orderType",
+      "@type": "xsd:string"
+    },
+    "paymentIds": {
+      "@id": "ofx:paymentIds",
+      "@container": "@list"
+    },
+    "fundingMethod": {
+      "@id": "ofx:fundingMethod",
+      "@type": "xsd:string"
+    },
+    "cardId": {
+      "@id": "ofx:cardId",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "ofx:method",
+      "@type": "xsd:string"
+    },
+    "paymentFee": {
+      "@id": "ofx:paymentFee",
+      "@type": "xsd:decimal"
+    },
+    "PostV1BusinessConversionsResponse": "ofx:PostV1BusinessConversionsResponse",
+    "companyId": {
+      "@id": "ofx:companyId",
+      "@type": "xsd:string"
+    },
+    "forwardId": {
+      "@id": "ofx:forwardId",
+      "@type": "xsd:string"
+    },
+    "fixedSide": {
+      "@id": "ofx:fixedSide",
+      "@type": "xsd:string"
+    },
+    "conversionDate": {
+      "@id": "ofx:conversionDate",
+      "@type": "xsd:string"
+    },
+    "latestSettlementDate": {
+      "@id": "ofx:latestSettlementDate",
+      "@type": "xsd:string"
+    },
+    "delinquentDate": {
+      "@id": "ofx:delinquentDate",
+      "@type": "xsd:string"
+    },
+    "sellCurrency": {
+      "@id": "ofx:sellCurrency",
+      "@type": "xsd:string"
+    },
+    "buyCurrency": {
+      "@id": "ofx:buyCurrency",
+      "@type": "xsd:string"
+    },
+    "createdBy": {
+      "@id": "ofx:createdBy",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "ofx:amount",
+      "@type": "xsd:decimal"
+    },
+    "PostV1BusinessConversionsRateRequest": "ofx:PostV1BusinessConversionsRateRequest",
+    "rateDate": {
+      "@id": "ofx:rateDate",
+      "@type": "xsd:string"
+    },
+    "PostV1BusinessConversionsRateResponse": "ofx:PostV1BusinessConversionsRateResponse",
+    "buyAmount": {
+      "@id": "ofx:buyAmount",
+      "@type": "xsd:string"
+    },
+    "sellAmount": {
+      "@id": "ofx:sellAmount",
+      "@type": "xsd:string"
+    },
+    "ourRate": {
+      "@id": "ofx:ourRate",
+      "@type": "xsd:string"
+    },
+    "yourRate": {
+      "@id": "ofx:yourRate",
+      "@type": "xsd:string"
+    },
+    "ourMargin": {
+      "@id": "ofx:ourMargin",
+      "@type": "xsd:string"
+    },
+    "GetV1BusinessConversionsConversionidResponse": "ofx:GetV1BusinessConversionsConversionidResponse",
+    "links": {
+      "@id": "ofx:links"
+    },
+    "cancellationCosts": {
+      "@id": "ofx:cancellationCosts",
+      "@container": "@list"
+    },
+    "GetV1BusinessRatesResponse": "ofx:GetV1BusinessRatesResponse",
+    "base": {
+      "@id": "ofx:base",
+      "@type": "xsd:string"
+    },
+    "rates": {
+      "@id": "ofx:rates"
+    },
+    "GetV1BusinessRatesBulkResponse": "ofx:GetV1BusinessRatesBulkResponse",
+    "validUntil": {
+      "@id": "ofx:validUntil",
+      "@type": "xsd:string"
+    },
+    "wholesaleRate": {
+      "@id": "ofx:wholesaleRate",
+      "@type": "xsd:decimal"
+    },
+    "retailRate": {
+      "@id": "ofx:retailRate",
+      "@type": "xsd:decimal"
+    },
+    "indicative": {
+      "@id": "ofx:indicative",
+      "@type": "xsd:boolean"
+    },
+    "GetV1BusinessUsersResponse": "ofx:GetV1BusinessUsersResponse",
+    "next": {
+      "@id": "ofx:next",
+      "@type": "xsd:string"
+    },
+    "GetV1BusinessUsersCompaniesResponse": "ofx:GetV1BusinessUsersCompaniesResponse",
+    "GetV1BusinessUsersCurrentPermissionsResponse": "ofx:GetV1BusinessUsersCurrentPermissionsResponse",
+    "companyBaseCurrency": {
+      "@id": "ofx:companyBaseCurrency",
+      "@type": "xsd:string"
+    },
+    "companyStatus": {
+      "@id": "ofx:companyStatus",
+      "@type": "xsd:string"
+    },
+    "acceptedMigrationTerms": {
+      "@id": "ofx:acceptedMigrationTerms",
+      "@type": "xsd:boolean"
+    },
+    "legalEntity": {
+      "@id": "ofx:legalEntity",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "ofx:timeZone",
+      "@type": "xsd:string"
+    },
+    "userClear": {
+      "@id": "ofx:userClear",
+      "@type": "xsd:boolean"
+    },
+    "permissions": {
+      "@id": "ofx:permissions"
+    },
+    "bookKeepingOrAccountingPractice": {
+      "@id": "ofx:bookKeepingOrAccountingPractice",
+      "@type": "xsd:boolean"
+    },
+    "countryCode": {
+      "@id": "ofx:countryCode",
+      "@type": "xsd:string"
+    },
+    "PostV1BusinessUsersValidateemailRequest": "ofx:PostV1BusinessUsersValidateemailRequest",
+    "PostV1BusinessUsersValidateemailResponse": "ofx:PostV1BusinessUsersValidateemailResponse",
+    "isExisting": {
+      "@id": "ofx:isExisting",
+      "@type": "xsd:boolean"
+    },
+    "GetV1BusinessUsersUseridResponse": "ofx:GetV1BusinessUsersUseridResponse",
+    "middleName": {
+      "@id": "ofx:middleName",
+      "@type": "xsd:string"
+    },
+    "experianAddress": {
+      "@id": "ofx:experianAddress",
+      "@type": "xsd:string"
+    },
+    "addressStructured": {
+      "@id": "ofx:addressStructured"
+    },
+    "gender": {
+      "@id": "ofx:gender",
+      "@type": "xsd:string"
+    },
+    "countryAreaCode": {
+      "@id": "ofx:countryAreaCode",
+      "@type": "xsd:string"
+    },
+    "dateOfBirth": {
+      "@id": "ofx:dateOfBirth",
+      "@type": "xsd:string"
+    },
+    "mobile": {
+      "@id": "ofx:mobile",
+      "@type": "xsd:string"
+    },
+    "F1APIEntityID": {
+      "@id": "ofx:F1APIEntityID",
+      "@type": "xsd:string"
+    },
+    "screeningStatus": {
+      "@id": "ofx:screeningStatus",
+      "@type": "xsd:string"
+    },
+    "verifyIdentity": {
+      "@id": "ofx:verifyIdentity",
+      "@type": "xsd:string"
+    },
+    "onfidoApplicantId": {
+      "@id": "ofx:onfidoApplicantId",
+      "@type": "xsd:string"
+    },
+    "avatar": {
+      "@id": "ofx:avatar",
+      "@type": "xsd:string"
+    },
+    "referral": {
+      "@id": "ofx:referral",
+      "@type": "xsd:string"
+    },
+    "referralCode": {
+      "@id": "ofx:referralCode",
+      "@type": "xsd:string"
+    },
+    "fromCurrency": {
+      "@id": "ofx:fromCurrency",
+      "@type": "xsd:string"
+    },
+    "toCurrency": {
+      "@id": "ofx:toCurrency",
+      "@type": "xsd:string"
+    },
+    "transferRange": {
+      "@id": "ofx:transferRange",
+      "@type": "xsd:string"
+    },
+    "notificationSettings": {
+      "@id": "ofx:notificationSettings"
+    },
+    "roleName": {
+      "@id": "ofx:roleName",
+      "@type": "xsd:string"
+    },
+    "supportRole": {
+      "@id": "ofx:supportRole",
+      "@type": "xsd:string"
+    },
+    "authorities": {
+      "@id": "ofx:authorities",
+      "@container": "@list"
+    },
+    "userSource": {
+      "@id": "ofx:userSource",
+      "@type": "xsd:string"
+    },
+    "marketingAgreement": {
+      "@id": "ofx:marketingAgreement",
+      "@type": "xsd:boolean"
+    },
+    "marketingAgreementAt": {
+      "@id": "ofx:marketingAgreementAt",
+      "@type": "xsd:string"
+    },
+    "cid": {
+      "@id": "ofx:cid",
+      "@type": "xsd:integer"
+    },
+    "ofxUserAgreement": {
+      "@id": "ofx:ofxUserAgreement",
+      "@type": "xsd:boolean"
+    },
+    "ofxUserAgreementAt": {
+      "@id": "ofx:ofxUserAgreementAt",
+      "@type": "xsd:string"
+    },
+    "serviceMessagesAgreement": {
+      "@id": "ofx:serviceMessagesAgreement",
+      "@type": "xsd:boolean"
+    },
+    "serviceMessagesAgreementAt": {
+      "@id": "ofx:serviceMessagesAgreementAt",
+      "@type": "xsd:string"
+    },
+    "advisorConsoleAgreement": {
+      "@id": "ofx:advisorConsoleAgreement",
+      "@type": "xsd:boolean"
+    },
+    "advisorConsoleAgreementAt": {
+      "@id": "ofx:advisorConsoleAgreementAt",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "ofx:externalId",
+      "@type": "xsd:string"
+    },
+    "externalUserName": {
+      "@id": "ofx:externalUserName",
+      "@type": "xsd:string"
+    },
+    "deviceConnected": {
+      "@id": "ofx:deviceConnected",
+      "@type": "xsd:boolean"
+    },
+    "GetV1BusinessWalletsResponse": "ofx:GetV1BusinessWalletsResponse",
+    "PostV1BusinessWalletsRequest": "ofx:PostV1BusinessWalletsRequest",
+    "PostV1BusinessWalletsResponse": "ofx:PostV1BusinessWalletsResponse",
+    "walletNickname": {
+      "@id": "ofx:walletNickname",
+      "@type": "xsd:string"
+    },
+    "balance": {
+      "@id": "ofx:balance",
+      "@type": "xsd:decimal"
+    },
+    "availableBalance": {
+      "@id": "ofx:availableBalance",
+      "@type": "xsd:decimal"
+    },
+    "bankDetails": {
+      "@id": "ofx:bankDetails"
+    },
+    "additionalBankDetails": {
+      "@id": "ofx:additionalBankDetails",
+      "@container": "@list"
+    },
+    "GetV1BusinessWalletsWalletidResponse": "ofx:GetV1BusinessWalletsWalletidResponse",
+    "PostV1OauthTokenRequest": "ofx:PostV1OauthTokenRequest",
+    "PostV1OauthTokenResponse": "ofx:PostV1OauthTokenResponse",
+    "GetV1OfxratesFromcurrencyTocurrencyAmountResponse": "ofx:GetV1OfxratesFromcurrencyTocurrencyAmountResponse",
+    "ofxRate": {
+      "@id": "ofx:ofxRate",
+      "@type": "xsd:decimal"
+    },
+    "inverseOfxRate": {
+      "@id": "ofx:inverseOfxRate",
+      "@type": "xsd:decimal"
+    },
+    "convertedAmount": {
+      "@id": "ofx:convertedAmount",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "OFX API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects OFX's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-09-22) from openapi/_ae-authored/ofx-openapi-generated.yml.",
+  "dcterms:created": "2026-09-22",
+  "dcterms:source": [
+    "openapi/_ae-authored/ofx-openapi-generated.yml"
+  ]
+}

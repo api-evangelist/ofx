@@ -1,0 +1,30 @@
+generated: 2026-09-22
+method: none
+source: https://registry.npmjs.org/-/v1/search?text=ofx
+packages: []
+rejected:
+- name: ofx
+  registry: npm
+  reason: 'official: false as written'
+- name: ofx-js
+  registry: npm
+  reason: 'official: false as written'
+- name: node-ofx-parser
+  registry: npm
+  reason: 'official: false as written'
+- name: ofx-data-extractor
+  registry: npm
+  reason: 'official: false as written'
+- name: ofx-convertjs
+  registry: npm
+  reason: 'official: false as written'
+- name: '@f-o-t/ofx'
+  registry: npm
+  reason: 'official: false as written'
+- name: csv2ofx
+  registry: npm
+  reason: 'official: false as written'
+- name: ofx4js
+  registry: npm
+  reason: 'official: false as written'
+note: 'no first-party package: every candidate a model listed was unowned (harvest-packages.py --audit)'

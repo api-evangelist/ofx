@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ofx/main/json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json",
+  "title": "PostOpenBankingV31PispPaymentConsentResponse",
+  "x-generated": "2026-09-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ofx-pisp-openapi-generated.yml#/components/schemas/PostOpenBankingV31PispPaymentConsentResponse",
+  "type": "object",
+  "properties": {
+    "ConsentId": {
+      "type": "string",
+      "description": "Unique identification as assigned to identify the payment consent resource."
+    },
+    "Status": {
+      "type": "string",
+      "description": "Specifies the status of consent resource in code form."
+    },
+    "StatusUpdateDateTime": {
+      "type": "string",
+      "description": "Date and time at which the resource status was updated."
+    },
+    "CreationDateTime": {
+      "type": "string",
+      "description": "Date and time at which the resource was created."
+    },
+    "Amount": {
+      "type": "integer",
+      "description": "Amount to be transferred"
+    },
+    "Currency": {
+      "type": "string",
+      "description": "Currency of the amount to be transferred"
+    }
+  }
+}

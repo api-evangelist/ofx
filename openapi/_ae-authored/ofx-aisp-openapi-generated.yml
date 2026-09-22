@@ -1,0 +1,499 @@
+openapi: 3.1.0
+info:
+  title: OFX AISP API
+  version: '2026-09-22'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-09-22: 8 operation(s) read from 6 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; OFX has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-09-22'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI0-post-token
+  - https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI1-get-authorize
+  - https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTIy-post-refresh-token
+  - https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTIz-post-authorization-code
+  - https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NTg-create-account-access-consents
+  - https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NjE-get-accounts
+  x-docs-section: aisp-api
+servers:
+- url: https://beta.api.ofx.com
+paths:
+  /authorization_code:
+    post:
+      operationId: post_authorization_code
+      tags:
+      - Authorization Code
+      summary: The endpoint to issue the token
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTIz-post-authorization-code
+      parameters:
+      - name: grant_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: response type. must be authorization_code.
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: client identifier
+      - name: client_secret
+        in: query
+        required: true
+        schema:
+          type: string
+        description: client secret
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+        description: the scope of the access request
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+        description: authorization code
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: optional state to be sent back to callback url
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+        description: authorization code flow callback url
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAuthorizationCodeResponse'
+  /authorize:
+    get:
+      operationId: get_authorize
+      tags:
+      - Authorize
+      summary: The endpoint to log the user in and issue the authorize code
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI1-get-authorize
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: client identifier
+      - name: consent_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: accounts access consent identifier
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+        description: authorization code flow callback uri
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: response type. must be code.
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+        description: the scope of the access request
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: optional state to be sent back to callback uri
+      responses:
+        '302':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAuthorizeResponse'
+  /open-banking/v3.1/aisp/account-access-consents:
+    post:
+      operationId: post_open_banking_v3_1_aisp_account_access_consents
+      tags:
+      - Open Banking
+      summary: Create Account Access Consents
+      x-source: https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NTg-create-account-access-consents
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOpenBankingV31AispAccountAccessConsentsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOpenBankingV31AispAccountAccessConsentsResponse'
+  /open-banking/v3.1/aisp/accounts:
+    get:
+      operationId: get_open_banking_v3_1_aisp_accounts
+      tags:
+      - Open Banking
+      summary: Get Accounts
+      x-source: https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NjE-get-accounts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOpenBankingV31AispAccountsResponse'
+  /refresh_token:
+    post:
+      operationId: post_refresh_token
+      tags:
+      - Refresh Token
+      summary: The endpoint to refresh the access token
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTIy-post-refresh-token
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRefreshTokenRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRefreshTokenResponse'
+  /token:
+    post:
+      operationId: post_token
+      tags:
+      - Token
+      summary: The endpoint to issue the access token
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI0-post-token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTokenRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTokenResponse'
+  /v1/oauth/authorize:
+    get:
+      operationId: get_v1_oauth_authorize
+      tags:
+      - Oauth
+      summary: The endpoint to log the user in and issue the authorize code
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI1-get-authorize
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: consent_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+  /v1/oauth/token:
+    post:
+      operationId: post_v1_oauth_token
+      tags:
+      - Oauth
+      summary: The endpoint to issue the access token
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjM3NTQ2OTI0-post-token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1OauthTokenRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1OauthTokenResponse'
+components:
+  schemas:
+    PostAuthorizationCodeResponse:
+      type: object
+      properties:
+        Location:
+          type: string
+          description: User will get a token
+    GetAuthorizeResponse:
+      type: object
+      properties:
+        Location:
+          type: string
+          description: is sent only if user has entered username & password and allowed the App to access his information
+    PostOpenBankingV31AispAccountAccessConsentsRequest:
+      type: object
+      properties:
+        Data:
+          type: object
+          description: Data payload
+        Data.Permissions:
+          type: array
+          description: Permissions list (>=1 items)
+        Data.ExpirationDateTime:
+          type: string
+          description: Specified date and time the permissions will expire
+        Data.TransactionFromDateTime:
+          type: string
+          description: Specified start date and time for the transaction query period
+        Data.TransactionToDateTime:
+          type: string
+          description: Specified end date and time for the transaction query period
+        Risk:
+          type: object
+          description: Risk section sent by the initiating party
+      required:
+      - Data
+      - Data.Permissions
+      - Risk
+    PostOpenBankingV31AispAccountAccessConsentsResponse:
+      type: object
+      properties:
+        '201':
+          type: string
+          description: Account Access Consents Created
+        '400':
+          type: string
+          description: Bad Request
+        '401':
+          type: string
+          description: Unauthorized
+        '403':
+          type: string
+          description: Forbidden
+        '404':
+          type: string
+          description: Not Found
+        '429':
+          type: string
+          description: Too Many Requests
+        '500':
+          type: string
+          description: Internal Server Error
+    GetOpenBankingV31AispAccountsResponse:
+      type: object
+      properties:
+        Data:
+          type: object
+          description: Accounts Read
+        Data.Account:
+          type: array
+          description: Account
+        Links:
+          type: object
+          description: Links relevant to the payload
+        Links.Self:
+          type: string
+          description: required
+        Links.First:
+          type: string
+        Links.Prev:
+          type: string
+        Links.Next:
+          type: string
+        Links.Last:
+          type: string
+        Meta:
+          type: object
+          description: Meta Data relevant to the payload
+        Meta.TotalPages:
+          type: integer
+    PostRefreshTokenRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+        refresh_token:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        scope:
+          type: string
+    PostRefreshTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        refresh_token_expires_in:
+          type: integer
+        token_type:
+          type: string
+    PostTokenRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          description: client identifier
+        client_secret:
+          type: string
+          description: client secret password
+        grant_type:
+          type: string
+          description: authorization grant flow. can be client_credentials or authorization_code or refresh_token
+        scope:
+          type: string
+          description: the scope of the access request
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      - scope
+    PostTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        refresh_token_expires_in:
+          type: integer
+        token_type:
+          type: string
+    PostV1OauthTokenRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          description: client identifier
+        client_secret:
+          type: string
+          description: client secret password
+        grant_type:
+          type: string
+          description: authorization grant flow. can be client_credentials or authorization_code or refresh_token
+        scope:
+          type: string
+          description: the scope of the access request
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      - scope
+    PostV1OauthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        refresh_token_expires_in:
+          type: integer
+        token_type:
+          type: string
+  securitySchemes:
+    OAuth_2.0:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: &id001
+            payments: ''
+        authorizationCode:
+          authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: *id001
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+tags:
+- name: Authorization Code
+- name: Authorize
+- name: Oauth
+- name: Open Banking
+- name: Refresh Token
+- name: Token
+security:
+- OAuth_2.0:
+  - payments

@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: OFX Rates API
+  version: '2026-09-22'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-09-22: 3 operation(s) read from 2 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; OFX has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-09-22'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://api-docs.ofx.com/docs/rates-api/ZG9jOjM3NTQ3MzQ0-authentication
+  - https://api-docs.ofx.com/docs/rates-api/b3A6Mzc1NjY2NTA-get-rates
+  x-docs-section: rates-api
+servers:
+- url: https://beta.api.ofx.com
+paths:
+  /v1/ofxrates/AUD/USD/1000:
+    get:
+      operationId: get_v1_ofxrates_AUD_USD_1000
+      tags:
+      - Ofxrates
+      summary: Get OFX conversion rate
+      x-source: https://api-docs.ofx.com/docs/rates-api/ZG9jOjM3NTQ3MzQ0-authentication
+      responses:
+        '200':
+          description: Success (status as documented)
+  /v1/ofxrates/USD/AUD/1000:
+    get:
+      operationId: get_v1_ofxrates_USD_AUD_1000
+      tags:
+      - Ofxrates
+      summary: Get OFX conversion rate
+      x-source: https://api-docs.ofx.com/docs/rates-api/ZG9jOjM3NTQ3MzQ0-authentication
+      responses:
+        '200':
+          description: Success (status as documented)
+  /v1/ofxrates/{fromCurrency}/{toCurrency}/{amount}:
+    get:
+      operationId: get_v1_ofxrates_fromCurrency_toCurrency_amount
+      tags:
+      - Ofxrates
+      summary: Get Rates
+      x-source: https://api-docs.ofx.com/docs/rates-api/b3A6Mzc1NjY2NTA-get-rates
+      parameters:
+      - name: fromCurrency
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: toCurrency
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: amount
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1OfxratesFromcurrencyTocurrencyAmountResponse'
+components:
+  schemas:
+    GetV1OfxratesFromcurrencyTocurrencyAmountResponse:
+      type: object
+      properties:
+        ofxRate:
+          type: number
+          description: Current OFX rate for the conversion.
+        inverseOfxRate:
+          type: number
+          description: Current inverse OFX rate for the conversion.
+        convertedAmount:
+          type: number
+          description: Converted input amount based on from and to currency type.
+  securitySchemes:
+    OAuth_2.0:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: &id001
+            payments: ''
+        authorizationCode:
+          authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes: *id001
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+tags:
+- name: Ofxrates
+security:
+- OAuth_2.0:
+  - payments
