@@ -1,0 +1,217 @@
+generated: '2026-09-22'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 12
+  own: 12
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - portal
+  - support
+  - website
+hosts:
+- host: api-docs.ofx.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - GettingStarted
+  - Documentation
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: ofx.com
+  role: docs
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 4
+  probe_verdict: nothing
+- host: api.ofx.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: api
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 7
+  probe_verdict: nothing
+- host: app.ofx.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: other
+  relation: own
+- host: beta.api.ofx.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: ofx.com
+  role: api
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 7
+  probe_verdict: gated
+- host: developer.ofx.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - portal-detect
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  serves:
+  - docs
+  - portal
+  - api-gateway
+  - developer-portal
+  - html
+  vendor: apigee
+  access: gated
+  registrable_domain: ofx.com
+  role: portal
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 5
+  probe_found:
+  - path: /
+    kind: html
+    bytes: 2138
+  - path: /apis
+    kind: html
+    bytes: 2138
+  - path: /api-products
+    kind: html
+    bytes: 2138
+  probe_verdict: answers
+- host: identity.ofx.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves:
+  - oauth-metadata
+  registrable_domain: ofx.com
+  role: identity
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 2
+  probe_found:
+  - path: /.well-known/openid-configuration
+    kind: oauth-metadata
+    bytes: 2793
+  - path: /.well-known/oauth-authorization-server
+    kind: oauth-metadata
+    bytes: 4156
+  probe_verdict: answers
+- host: internal.support.ofx.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: support
+  relation: own
+- host: login.ofx.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Login
+  serves:
+  - cdn
+  vendor: cloudfront
+  registrable_domain: ofx.com
+  role: identity
+  relation: own
+  last_probed: '2026-09-22'
+  probe_paths: 2
+  probe_verdict: nothing
+- host: support.ofx.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: support
+  relation: own
+- host: trust.ofx.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: other
+  relation: own
+- host: www.dev.ofx.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: ofx.com
+  role: other
+  relation: own
+- host: www.ofx.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Security
+  - PrivacyPolicy
+  - Website
+  - Blog
+  - Pricing
+  - Support
+  serves:
+  - docs
+  - cdn
+  vendor: fastly
+  registrable_domain: ofx.com
+  role: website
+  relation: own
+probed:
+  date: '2026-09-22'
+  hosts: 6
+  answers: 2
+  gated: 1
+  dead: 0
