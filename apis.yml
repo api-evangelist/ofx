@@ -16,6 +16,12 @@ modified: '2026-09-22'
 tags:
 - Company
 - Payments
+- Money Transfer
+- Fintech
+- Banking
+tags_raw:
+- Company
+- Payments
 - Money-Transfer
 - FinTech
 - Banking
@@ -73,16 +79,16 @@ common:
 - type: Support
   url: https://www.ofx.com/en-us/business/help/
 apis:
-- aid: ofx:aisp-api
-  name: OFX AISP API
-  description: 'OFX AISP API as documented publicly: 8 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
-    the provider''s own document.'
+- aid: ofx:ofx-authorization-code-api
+  name: OFX Authorization Code API
+  description: The Authorization Code API from OFX — 1 operation(s) for authorization code.
   humanURL: https://api-docs.ofx.com/docs/aisp-api
   baseURL: https://beta.api.ofx.com
+  tags:
+  - Authorization Code
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/ofx-aisp-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/ofx-authorization-code-api-openapi.yml
   - type: JSONSchema
     url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
   - type: JSONSchema
@@ -95,16 +101,6 @@ apis:
     url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
   - type: JSONSchema
     url: json-schema/ofx-post-refresh-token-response-schema.json
-- aid: ofx:ncp-api
-  name: OFX NCP API
-  description: 'OFX NCP API as documented publicly: 22 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
-    the provider''s own document.'
-  humanURL: https://api-docs.ofx.com/docs/ofx-ncp-apis
-  baseURL: https://beta.api.ofx.com
-  properties:
-  - type: OpenAPI
-    url: openapi/_ae-authored/ofx-ncp-openapi-generated.yml
-    x-provenance: generated
   - type: JSONSchema
     url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
   - type: JSONSchema
@@ -117,32 +113,306 @@ apis:
     url: json-schema/ofx-post-v1-business-conversions-response-schema.json
   - type: JSONSchema
     url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
-- aid: ofx:pisp-api
-  name: OFX PISP API
-  description: 'OFX PISP API as documented publicly: 3 operations. Contract generated from the documentation by API Evangelist (2026-09-22); not
-    the provider''s own document.'
-  humanURL: https://api-docs.ofx.com/docs/pisp-api
-  baseURL: https://beta.api.ofx.com
-  properties:
-  - type: OpenAPI
-    url: openapi/_ae-authored/ofx-pisp-openapi-generated.yml
-    x-provenance: generated
   - type: JSONSchema
     url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
   - type: JSONSchema
     url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
   - type: JSONSchema
     url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
-- aid: ofx:rates-api
-  name: OFX Rates API
-  description: 'OFX Rates API as documented publicly: 3 operations. Contract generated from the documentation by API Evangelist (2026-09-22);
-    not the provider''s own document.'
-  humanURL: https://api-docs.ofx.com/docs/rates-api
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-authorize-api
+  name: OFX Authorize API
+  description: The Authorize API from OFX — 1 operation(s) for authorize.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
   baseURL: https://beta.api.ofx.com
+  tags:
+  - Authorize
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/ofx-rates-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/ofx-authorize-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-business-api
+  name: OFX Business API
+  description: The Business API from OFX — 18 operation(s) for business.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Business
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-business-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-oauth-api
+  name: OFX OAuth API
+  description: The Oauth API from OFX — 2 operation(s) for oauth.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-oauth-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-ofxrates-api
+  name: OFX Ofxrates API
+  description: The Ofxrates API from OFX — 3 operation(s) for ofxrates.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Ofxrates
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-ofxrates-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-open-banking-api
+  name: OFX Open Banking API
+  description: The Open Banking API from OFX — 5 operation(s) for open banking.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-open-banking-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-refresh-token-api
+  name: OFX Refresh Token API
+  description: The Refresh Token API from OFX — 1 operation(s) for refresh token.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Refresh Token
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-refresh-token-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
+- aid: ofx:ofx-token-api
+  name: OFX Token API
+  description: The Token API from OFX — 1 operation(s) for token.
+  humanURL: https://api-docs.ofx.com/docs/aisp-api
+  baseURL: https://beta.api.ofx.com
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/ofx-token-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-aisp-accounts-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-oauth-token-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-aisp-account-access-consents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-refresh-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-users-userid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-v1-business-conversions-conversionid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-v1-business-conversions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-patch-v1-business-beneficiaries-beneficiaryid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-get-open-banking-v31-pisp-deal-dealid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-response-schema.json
+  - type: JSONSchema
+    url: json-schema/ofx-post-open-banking-v31-pisp-payment-consent-request-schema.json
   - type: JSONSchema
     url: json-schema/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response-schema.json
 x-enrichment:

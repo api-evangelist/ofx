@@ -1,0 +1,370 @@
+openapi: 3.2.0
+info:
+  title: Ofx Open Banking API
+  version: '2026-09-22'
+  x-authored-by: API Evangelist
+  x-refined-note:
+  - x-docs-section differs across the merged source definitions and was not carried
+  - x-sources differs across the merged source definitions and was not carried
+  x-engine: local
+  x-generated: '2026-09-22'
+  x-generated-from: documentation
+  x-generator: generate-contract-from-docs.py
+  x-provenance: generated
+  description: 'Operations tagged Open Banking across 2 of this provider''s published API definitions: ofx-aisp-openapi-generated.yml, ofx-pisp-openapi-generated.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://beta.api.ofx.com
+security:
+- OAuth_2.0:
+  - payments
+tags:
+- name: Open Banking
+paths:
+  /open-banking/v3.1/aisp/account-access-consents:
+    post:
+      operationId: post_open_banking_v3_1_aisp_account_access_consents
+      tags:
+      - Open Banking
+      summary: Create Account Access Consents
+      x-source: https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NTg-create-account-access-consents
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOpenBankingV31AispAccountAccessConsentsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOpenBankingV31AispAccountAccessConsentsResponse'
+    servers:
+    - url: https://beta.api.ofx.com
+  /open-banking/v3.1/aisp/accounts:
+    get:
+      operationId: get_open_banking_v3_1_aisp_accounts
+      tags:
+      - Open Banking
+      summary: Get Accounts
+      x-source: https://api-docs.ofx.com/docs/aisp-api/b3A6Mzc1NDY5NjE-get-accounts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOpenBankingV31AispAccountsResponse'
+    servers:
+    - url: https://beta.api.ofx.com
+  /open-banking/v3.1/pisp/deal/{DealId}:
+    get:
+      operationId: get_open_banking_v3_1_pisp_deal_DealId
+      tags:
+      - Open Banking
+      summary: Get Deal Details
+      x-source: https://api-docs.ofx.com/docs/pisp-api/b3A6Mzc1NDY5NzE-get-deal-details
+      parameters:
+      - name: DealId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOpenBankingV31PispDealDealidResponse'
+    servers:
+    - url: https://beta.api.ofx.com
+  /open-banking/v3.1/pisp/payment-consent:
+    post:
+      operationId: post_open_banking_v3_1_pisp_payment_consent
+      tags:
+      - Open Banking
+      summary: Create Payment Consent
+      x-source: https://api-docs.ofx.com/docs/pisp-api/b3A6Mzc1NDY5Njk-create-payment-consent
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
+      - name: ssl-client-cert
+        in: header
+        required: true
+        schema:
+          type: string
+        description: An eIDAS Certification of the TPP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOpenBankingV31PispPaymentConsentRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOpenBankingV31PispPaymentConsentResponse'
+    servers:
+    - url: https://beta.api.ofx.com
+  /open-banking/v3.1/pisp/payment-flow:
+    get:
+      operationId: get_open_banking_v3_1_pisp_payment_flow
+      tags:
+      - Open Banking
+      summary: Get Payment Flow
+      description: User is redirected to html page he can perform the payment flow
+      x-source: https://api-docs.ofx.com/docs/pisp-api/b3A6Mzc1NDY5NzA-get-payment-flow
+      parameters:
+      - name: consentId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: An idenetifier for the payment consent created
+      - name: token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: An Authorisation access token
+      - name: tppRedirectUrl
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The url where the user will be redirected to after payment flow
+      responses:
+        '302':
+          description: Success (status as documented)
+    servers:
+    - url: https://beta.api.ofx.com
+components:
+  schemas:
+    PostOpenBankingV31AispAccountAccessConsentsRequest:
+      type: object
+      properties:
+        Data:
+          type: object
+          description: Data payload
+        Data.Permissions:
+          type: array
+          description: Permissions list (>=1 items)
+        Data.ExpirationDateTime:
+          type: string
+          description: Specified date and time the permissions will expire
+        Data.TransactionFromDateTime:
+          type: string
+          description: Specified start date and time for the transaction query period
+        Data.TransactionToDateTime:
+          type: string
+          description: Specified end date and time for the transaction query period
+        Risk:
+          type: object
+          description: Risk section sent by the initiating party
+      required:
+      - Data
+      - Data.Permissions
+      - Risk
+    PostOpenBankingV31AispAccountAccessConsentsResponse:
+      type: object
+      properties:
+        '201':
+          type: string
+          description: Account Access Consents Created
+        '400':
+          type: string
+          description: Bad Request
+        '401':
+          type: string
+          description: Unauthorized
+        '403':
+          type: string
+          description: Forbidden
+        '404':
+          type: string
+          description: Not Found
+        '429':
+          type: string
+          description: Too Many Requests
+        '500':
+          type: string
+          description: Internal Server Error
+    GetOpenBankingV31AispAccountsResponse:
+      type: object
+      properties:
+        Data:
+          type: object
+          description: Accounts Read
+        Data.Account:
+          type: array
+          description: Account
+        Links:
+          type: object
+          description: Links relevant to the payload
+        Links.Self:
+          type: string
+          description: required
+        Links.First:
+          type: string
+        Links.Prev:
+          type: string
+        Links.Next:
+          type: string
+        Links.Last:
+          type: string
+        Meta:
+          type: object
+          description: Meta Data relevant to the payload
+        Meta.TotalPages:
+          type: integer
+    GetOpenBankingV31PispDealDealidResponse:
+      type: object
+      properties:
+        Deal:
+          type: object
+          description: Deal Details Read
+        Deal.DealId:
+          type: string
+          description: Unique identification of the created deal.
+        Deal.DealType:
+          type: string
+          description: Specifies the type of the created deal
+        Deal.BuyCurrency:
+          type: string
+          description: Buy Currency
+        Deal.BuyAmount:
+          type: number
+          description: Buy Amount
+        Deal.SellCurrency:
+          type: string
+          description: Sell Currency
+        Deal.SellAmount:
+          type: number
+          description: Sell Amount
+        Deal.Rate:
+          type: number
+          description: Rate
+        Deal.Status:
+          type: string
+          description: Deal Status
+        Deal.Reference:
+          type: string
+          description: Reference
+        Deal.EnteredDate:
+          type: string
+          description: Deal entered date
+        Deal.MaturityDate:
+          type: string
+          description: Deal maturity date
+        Deal.Fee:
+          type: number
+          description: Deal fee
+        Deal.FeeCurrency:
+          type: string
+          description: Deal fee currency
+        Deal.BPayNumber:
+          type: number
+          description: BPay Number
+        Deal.DealBeneficiaries:
+          type: array
+          description: Deal Beneficiaries
+        Deal.StateInfo:
+          type: object
+          description: StateInfo
+    PostOpenBankingV31PispPaymentConsentResponse:
+      type: object
+      properties:
+        ConsentId:
+          type: string
+          description: Unique identification as assigned to identify the payment consent resource.
+        Status:
+          type: string
+          description: Specifies the status of consent resource in code form.
+        StatusUpdateDateTime:
+          type: string
+          description: Date and time at which the resource status was updated.
+        CreationDateTime:
+          type: string
+          description: Date and time at which the resource was created.
+        Amount:
+          type: integer
+          description: Amount to be transferred
+        Currency:
+          type: string
+          description: Currency of the amount to be transferred
+    PostOpenBankingV31PispPaymentConsentRequest:
+      type: object
+      properties:
+        Currency:
+          type: string
+          description: Currency of the amount to be transferred
+        Amount:
+          type: integer
+          description: Amount to be transferred
+      required:
+      - Currency
+      - Amount
+  securitySchemes:
+    OAuth_2.0:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes:
+            payments: ''
+        authorizationCode:
+          authorizationUrl: https://sandbox.api.ofx.com/v1/oauth/authorize
+          tokenUrl: https://sandbox.api.ofx.com/v1/oauth/token
+          scopes:
+            payments: ''
+      x-source: https://api-docs.ofx.com/docs/aisp-api/ZG9jOjExNjE2NDU1-authentication
+x-refined-from:
+- ofx-aisp-openapi-generated.yml
+- ofx-pisp-openapi-generated.yml
