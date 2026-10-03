@@ -26,7 +26,16 @@
     "ofx-pisp-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "ofx-rates-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "tag 'Open Banking' spans 2 source specs (ofx-aisp-openapi-generated.yml, ofx-pisp-openapi-generated.yml): per-path servers applied",
-    "apis.yml register: written (+8 apis, 8 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "ofx-authorization-code-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-authorize-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-business-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-oauth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-ofxrates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-open-banking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-refresh-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ofx-token-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

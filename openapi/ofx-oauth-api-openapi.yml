@@ -88,19 +88,6 @@ paths:
                 $ref: '#/components/schemas/PostV1OauthTokenResponse'
 components:
   schemas:
-    PostV1OauthTokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-        expires_in:
-          type: integer
-        refresh_token:
-          type: string
-        refresh_token_expires_in:
-          type: integer
-        token_type:
-          type: string
     PostV1OauthTokenRequest:
       type: object
       properties:
@@ -121,6 +108,19 @@ components:
       - client_secret
       - grant_type
       - scope
+    PostV1OauthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        refresh_token_expires_in:
+          type: integer
+        token_type:
+          type: string
   securitySchemes:
     OAuth_2.0:
       type: oauth2

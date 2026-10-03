@@ -264,6 +264,39 @@ components:
           description: Meta Data relevant to the payload
         Meta.TotalPages:
           type: integer
+    PostOpenBankingV31PispPaymentConsentResponse:
+      type: object
+      properties:
+        ConsentId:
+          type: string
+          description: Unique identification as assigned to identify the payment consent resource.
+        Status:
+          type: string
+          description: Specifies the status of consent resource in code form.
+        StatusUpdateDateTime:
+          type: string
+          description: Date and time at which the resource status was updated.
+        CreationDateTime:
+          type: string
+          description: Date and time at which the resource was created.
+        Amount:
+          type: integer
+          description: Amount to be transferred
+        Currency:
+          type: string
+          description: Currency of the amount to be transferred
+    PostOpenBankingV31PispPaymentConsentRequest:
+      type: object
+      properties:
+        Currency:
+          type: string
+          description: Currency of the amount to be transferred
+        Amount:
+          type: integer
+          description: Amount to be transferred
+      required:
+      - Currency
+      - Amount
     GetOpenBankingV31PispDealDealidResponse:
       type: object
       properties:
@@ -318,39 +351,6 @@ components:
         Deal.StateInfo:
           type: object
           description: StateInfo
-    PostOpenBankingV31PispPaymentConsentResponse:
-      type: object
-      properties:
-        ConsentId:
-          type: string
-          description: Unique identification as assigned to identify the payment consent resource.
-        Status:
-          type: string
-          description: Specifies the status of consent resource in code form.
-        StatusUpdateDateTime:
-          type: string
-          description: Date and time at which the resource status was updated.
-        CreationDateTime:
-          type: string
-          description: Date and time at which the resource was created.
-        Amount:
-          type: integer
-          description: Amount to be transferred
-        Currency:
-          type: string
-          description: Currency of the amount to be transferred
-    PostOpenBankingV31PispPaymentConsentRequest:
-      type: object
-      properties:
-        Currency:
-          type: string
-          description: Currency of the amount to be transferred
-        Amount:
-          type: integer
-          description: Amount to be transferred
-      required:
-      - Currency
-      - Amount
   securitySchemes:
     OAuth_2.0:
       type: oauth2

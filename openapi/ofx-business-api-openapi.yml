@@ -809,108 +809,36 @@ paths:
                 $ref: '#/components/schemas/GetV1BusinessWalletsWalletidResponse'
 components:
   schemas:
-    PostV1BusinessBeneficiariesRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          description: Top‑level JSON:API data object.
-        data.type:
-          type: string
-          description: 'Allowed value: beneficiaries.'
-        data.attributes:
-          type: object
-          description: Attributes of the beneficiary (e.g., entityType, companyName, name, paymentType, currency, address, accountName, accountNumber, primaryRoutingCodeType, primaryRoutingCodeValue, bankDetails, email).
-      required:
-      - data
-      - data.type
-      - data.attributes
-    PostV1BusinessUsersValidateemailRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          description: The email to be validated
-      required:
-      - email
-    GetV1BusinessConversionsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          description: A list of conversions matching the request input.
-        cursor:
-          type: string
-          description: Pagination cursor if the full response could not be returned in one call.
-    PostV1BusinessConversionsRequest:
-      type: object
-      properties:
-        quoteId:
-          type: string
-          description: UUID of the quote to use for the conversion
-        orderType:
-          type: string
-          description: For guaranteed rate conversions, must be either 'fixed' or 'spot'
-        paymentIds:
-          type: array
-          description: List of Payment ids associated with the conversion.
-        fundingMethod:
-          type: string
-          description: Fund by credit card or direct debit
-        cardId:
-          type: string
-          description: Identifier of the credit card when fundingMethod is credit card
-        method:
-          type: string
-          description: 'Funding method type, allowed value: creditCard'
-        paymentFee:
-          type: number
-          description: Fee to account for when conversion is linked to a payment with a fee
-      required:
-      - quoteId
-      - orderType
-    GetV1BusinessWalletsResponse:
+    PostV1BusinessBeneficiariesResponse:
       type: object
       properties:
         '200':
           type: string
-          description: The list of wallets for this company.
-    GetV1BusinessRatesBulkResponse:
+          description: Successful creation of beneficiary.
+        '400':
+          type: string
+          description: Bad request.
+        '401':
+          type: string
+          description: Unauthorized.
+        '404':
+          type: string
+          description: Not found.
+        '422':
+          type: string
+          description: Unprocessable entity.
+        '500':
+          type: string
+          description: Server error.
+    GetV1BusinessUsersCompaniesResponse:
       type: object
       properties:
         data:
           type: array
-          description: A list of currency rates for all requested pairs
-        id:
+          description: Basic information about the company and the user's relationship (role/permissions) with the company.
+        next:
           type: string
-          description: Uniquely identifies this rate
-        sellCurrency:
-          type: string
-          description: The currency you are selling.
-        buyCurrency:
-          type: string
-          description: The currency you are buying.
-        createdAt:
-          type: string
-          description: ISO datetime the rate was retrieved.
-        validUntil:
-          type: string
-          description: ISO datetime at which the rate is no longer valid.
-        companyId:
-          type: string
-          description: The ID for the company whose margin is applied in the rate.
-        wholesaleRate:
-          type: number
-          description: The market rate obtained by Paytron.
-        retailRate:
-          type: number
-          description: The rate with the relevant company's markup applied.
-        indicative:
-          type: boolean
-          description: Whether the rate is indicative of the current rates or is a cached value.
-        status:
-          type: string
-          description: 'Allowed value: 200'
+          description: Auth
     PostV1BusinessBeneficiariesValidateRequest:
       type: object
       properties:
@@ -940,592 +868,6 @@ components:
       - payload
       - payload.BeneficiaryName
       - payload.BeneficiaryCountry
-    GetV1BusinessBeneficiariesBankDetailsResponse:
-      type: object
-      properties:
-        isValid:
-          type: boolean
-          description: required
-        bankName:
-          type: string
-        bankAddress:
-          type: string
-        bankCity:
-          type: string
-        bankPostCode:
-          type: string
-    PostV1BusinessBeneficiariesResponse:
-      type: object
-      properties:
-        '200':
-          type: string
-          description: Successful creation of beneficiary.
-        '400':
-          type: string
-          description: Bad request.
-        '401':
-          type: string
-          description: Unauthorized.
-        '404':
-          type: string
-          description: Not found.
-        '422':
-          type: string
-          description: Unprocessable entity.
-        '500':
-          type: string
-          description: Server error.
-    GetV1BusinessBeneficiariesBeneficiaryidResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifying the beneficiary
-        name:
-          type: string
-        firstName:
-          type: string
-          description: First name of the beneficiary
-        lastName:
-          type: string
-          description: Last name of the beneficiary
-        companyName:
-          type: string
-        email:
-          type: string
-          description: Email of the beneficiary
-        currency:
-          type: string
-          description: Currency the beneficiary will receive
-        entityType:
-          type: string
-          description: Type of beneficiary
-        ABN:
-          type: string
-          description: Australian Business Number of this beneficiary
-        address:
-          type: string
-          description: The full address of the beneficiary
-        country:
-          type: string
-          description: Country where the beneficiary resides
-        state:
-          type: string
-          description: State where the beneficiary resides
-        city:
-          type: string
-          description: City where the beneficiary resides
-        postCode:
-          type: string
-          description: PostCode of the beneficiary's address
-        accountNumber:
-          type: string
-          description: The primary account number of the beneficiary
-        bankAccountHolderName:
-          type: string
-          description: The name on the bank account holder
-        paymentType:
-          type: string
-          description: The type of payment rail this beneficiary is using
-        payIdType:
-          type: string
-          description: If the payment type is payId, the type of payId the beneficiary is using
-        customerReferenceNumber:
-          type: string
-          description: BPAY customer reference number
-        bankCode:
-          type: string
-          description: The value for the institution/bank‑level code
-        bankCodeValue:
-          type: string
-          description: The actual routing value for the selected bankCodeType
-        bankCodeType:
-          type: string
-          description: The type of the bank code
-        bankInfo:
-          type: object
-          description: All the information about the bank account
-        BICSWIFT:
-          type: string
-          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
-        IBAN:
-          type: string
-          description: International Bank Account Number for this beneficiary, if applicable.
-        preferredXeroAccountCode:
-          type: string
-          description: The preferred xero account code for this beneficiary
-        createdAt:
-          type: string
-          description: ISO 8601 UTC datetime
-        updatedAt:
-          type: string
-          description: ISO 8601 UTC datetime
-        updatedBy:
-          type: string
-          description: UUID of the last updating user
-        status:
-          type: string
-          description: The status of the beneficiary
-        validatedAt:
-          type: string
-          description: UTC datetime of when the beneficiary was last validated
-    GetV1BusinessRatesResponse:
-      type: object
-      properties:
-        base:
-          type: string
-          description: The company base currency
-        rates:
-          type: object
-          description: Currency codes as keys; value is units of that currency per one unit of the base currency.
-    GetV1BusinessConversionsConversionidResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifying the conversion
-        companyId:
-          type: string
-          description: UUID identifying the conversion's company
-        paymentIds:
-          type: array
-          description: Array of unique identifiers tying a conversion to Paytron payments
-        forwardId:
-          type: string
-          description: UUID identifying the forward for a conversion
-        fixedSide:
-          type: string
-          description: The side of the transaction that is fixed (buy or sell)
-        conversionDate:
-          type: string
-          description: The day the conversion will start trying to execute (yyyy-mm-dd)
-        latestSettlementDate:
-          type: string
-          description: The latest date that the conversion can be executed (yyyy-mm-dd)
-        delinquentDate:
-          type: string
-          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
-        fundingMethod:
-          type: string
-          description: Funding method (e.g., Fund by credit card, Fund by direct debit)
-        cardId:
-          type: string
-          description: Card identifier when funding by credit card
-        method:
-          type: string
-          description: Funding method value (e.g., creditCard)
-        sellCurrency:
-          type: string
-          description: 3‑letter currency code of the sell currency
-        buyCurrency:
-          type: string
-          description: 3‑letter currency code of the buy currency
-        createdAt:
-          type: string
-          description: ISO 8601 UTC datetime when the conversion was created
-        createdBy:
-          type: string
-          description: UUID of the creating user or client
-        updatedAt:
-          type: string
-          description: ISO 8601 UTC datetime when the conversion was last updated
-        updatedBy:
-          type: string
-          description: UUID of the last updating user
-        links:
-          type: object
-          description: Links to related resources
-        cancellationCosts:
-          type: array
-          description: Cancellation cost links or objects
-        amount:
-          type: number
-          description: The amount of currency to convert
-        status:
-          type: string
-          description: Conversion status (e.g., NEEDS_APPROVAL, SCHEDULED, ...)
-        orderType:
-          type: string
-          description: Order type (e.g., spot)
-    PostV1BusinessBeneficiariesSearchRequest:
-      type: object
-      properties:
-        startDate:
-          type: string
-          description: The start date of the search
-        endDate:
-          type: string
-          description: The end date of the search
-        entityType:
-          type: string
-          description: The entity type of the recipient
-        searchTerm:
-          type: string
-          description: Searchable term for recipient search requests
-        index:
-          type: number
-          description: The page number to start your search from
-    PostV1BusinessBeneficiariesValidateResponse:
-      type: object
-      properties:
-        isValid:
-          type: boolean
-          description: Whether the beneficiary details are valid
-        errors:
-          type: array
-          description: List of validation errors. Empty array when validation is successful.
-        errors[].field:
-          type: string
-          description: Field that failed validation
-        errors[].message:
-          type: string
-          description: Validation error message
-    PatchV1BusinessBeneficiariesBeneficiaryidRequest:
-      type: object
-      properties:
-        data:
-          type: object
-        data.type:
-          type: string
-          description: Resource type. Must be set to 'beneficiaries'.
-        data.attributes:
-          type: object
-        data.attributes.address:
-          type: object
-        data.attributes.address.address:
-          type: string
-        data.attributes.address.city:
-          type: string
-        data.attributes.address.postCode:
-          type: string
-        data.attributes.address.state:
-          type: string
-        data.attributes.address.country:
-          type: string
-        data.attributes.address.countryCode:
-          type: string
-        data.attributes.email:
-          type: string
-        data.attributes.name:
-          type: string
-        data.attributes.paymentInformation:
-          type: object
-        data.attributes.paymentInformation.accountName:
-          type: string
-        data.attributes.paymentInformation.accountNumber:
-          type: string
-        data.attributes.paymentInformation.bankDetails:
-          type: object
-        data.attributes.paymentInformation.bankDetails.address:
-          type: string
-        data.attributes.paymentInformation.bankDetails.city:
-          type: string
-        data.attributes.paymentInformation.bankDetails.postCode:
-          type: string
-        data.attributes.paymentInformation.bankDetails.country:
-          type: string
-        data.attributes.paymentInformation.bankDetails.countryCode:
-          type: string
-        data.attributes.paymentInformation.bankDetails.name:
-          type: string
-        data.attributes.paymentInformation.currency:
-          type: string
-        data.attributes.paymentInformation.primaryRoutingCodeType:
-          type: string
-        data.attributes.paymentInformation.primaryRoutingCodeValue:
-          type: string
-        data.attributes.entityType:
-          type: string
-        data.attributes.abn:
-          type: string
-        data.attributes.companyName:
-          type: string
-        data.attributes.paymentType:
-          type: string
-        data.attributes.status:
-          type: string
-      required:
-      - data
-      - data.type
-      - data.attributes
-    PostV1BusinessConversionsRateRequest:
-      type: object
-      properties:
-        buyCurrency:
-          type: string
-          description: 3 letter currency code of the buy currency
-        sellCurrency:
-          type: string
-          description: 3 letter currency code of the sell currency
-        fixedSide:
-          type: string
-          description: Which side of the conversion is being fixed
-        amount:
-          type: string
-          description: fixedSide buy — The amount of buyCurrency being bought; fixedSide sell — The amount of sellCurrency being sold
-        conversionDate:
-          type: string
-          description: The day the conversion will start trying to execute. Defaults to today.
-        rateDate:
-          type: string
-          description: The date to lock the FX rate for the conversion on. Defaults to conversionDate.
-      required:
-      - buyCurrency
-      - sellCurrency
-      - fixedSide
-      - amount
-    GetV1BusinessUsersCompaniesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          description: Basic information about the company and the user's relationship (role/permissions) with the company.
-        next:
-          type: string
-          description: Auth
-    PostV1BusinessConversionsRateResponse:
-      type: object
-      properties:
-        buyCurrency:
-          type: string
-          description: 3 letter currency code of the buy currency
-        sellCurrency:
-          type: string
-          description: 3 letter currency code of the sell currency
-        fixedSide:
-          type: string
-          description: Which side of the conversion is being fixed
-        buyAmount:
-          type: string
-          description: Amount of buyCurrency being bought
-        sellAmount:
-          type: string
-          description: Amount of sellCurrency being sold
-        conversionDate:
-          type: string
-          description: The day the conversion, if created from this quote, will start trying to execute
-        ourRate:
-          type: string
-          description: The rate Paytron receives
-        yourRate:
-          type: string
-          description: The rate the customer receives
-        ourMargin:
-          type: string
-          description: The margin taken as a fee, represented as a percentage
-    PatchV1BusinessBeneficiariesBeneficiaryidResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifying the beneficiary
-        name:
-          type: string
-        firstName:
-          type: string
-          description: First name of the beneficiary
-        lastName:
-          type: string
-          description: Last name of the beneficiary
-        companyName:
-          type: string
-        email:
-          type: string
-          description: Email of the beneficiary
-        currency:
-          type: string
-          description: Currency the beneficiary will receive
-        entityType:
-          type: string
-          description: Type of beneficiary
-        ABN:
-          type: string
-          description: Australian Business Number of this beneficiary
-        address:
-          type: string
-          description: The full address of the beneficiary
-        country:
-          type: string
-          description: Country where the beneficiary resides
-        state:
-          type: string
-          description: State where the beneficiary resides
-        city:
-          type: string
-          description: City where the beneficiary resides
-        postCode:
-          type: string
-          description: PostCode of the beneficiary's address
-        accountNumber:
-          type: string
-          description: The primary account number of the beneficiary
-        bankAccountHolderName:
-          type: string
-          description: The name on the bank account holder
-        paymentType:
-          type: string
-          description: The type of payment rail this beneficiary is using
-        payIdType:
-          type: string
-          description: If the the payment type of the beneficiary is payId. This is the type of payId the beneficiary is using.
-        customerReferenceNumber:
-          type: string
-          description: BPAY customer reference number
-        bankCode:
-          type: string
-        bankCodeValue:
-          type: string
-        bankCodeType:
-          type: string
-        bankInfo:
-          type: object
-        BICSWIFT:
-          type: string
-          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
-        IBAN:
-          type: string
-          description: International Bank Account Number for this beneficiary, if applicable.
-        preferredXeroAccountCode:
-          type: string
-          description: The preferred xero account code for this beneficiary
-        createdAt:
-          type: string
-          description: ISO 8601 UTC datetime
-        updatedAt:
-          type: string
-          description: ISO 8601 UTC datetime
-        updatedBy:
-          type: string
-          description: UUID of the last updating user
-        status:
-          type: string
-          description: The status of the beneficiary
-        validatedAt:
-          type: string
-          description: UTC datetime of when the beneficiary was last validated
-    PostV1BusinessUsersValidateemailResponse:
-      type: object
-      properties:
-        email:
-          type: string
-          description: The email validated by the platform
-        id:
-          type: string
-          description: The corresponding user id, if any
-        isValid:
-          type: boolean
-          description: The validation result, true for valid, false for invalid
-        isExisting:
-          type: boolean
-          description: Flag indicating a corresponding user account exists
-    PostV1BusinessConversionsResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifying the conversion
-        companyId:
-          type: string
-          description: UUID identifying the conversion's company
-        paymentIds:
-          type: array
-          description: Array of unique identifiers tying a conversion to Paytron payments.
-        forwardId:
-          type: string
-          description: UUID identifying the forward for a conversion, if applicable
-        fixedSide:
-          type: string
-          description: The side of the transaction that is fixed (buy or sell)
-        conversionDate:
-          type: string
-          description: The day the conversion will start trying to execute (yyyy-mm-dd)
-        latestSettlementDate:
-          type: string
-          description: The latest date that the conversion can be executed (yyyy-mm-dd)
-        delinquentDate:
-          type: string
-          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
-        fundingMethod:
-          type: string
-          description: Funding method used
-        cardId:
-          type: string
-          description: Card identifier when funded by credit card
-        method:
-          type: string
-          description: Funding method type
-        sellCurrency:
-          type: string
-          description: 3‑letter currency code of the sell currency
-        buyCurrency:
-          type: string
-          description: 3‑letter currency code of the buy currency
-        createdAt:
-          type: string
-          description: ISO 8601 UTC datetime of creation
-        createdBy:
-          type: string
-          description: UUID of the creating user or client
-        updatedAt:
-          type: string
-          description: ISO 8601 UTC datetime of last update
-        updatedBy:
-          type: string
-          description: UUID of the last updating user
-        amount:
-          type: number
-          description: The amount of currency to convert
-        status:
-          type: string
-          description: Current status of the conversion
-        orderType:
-          type: string
-          description: Order type (spot or fixed)
-    GetV1BusinessUsersResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          description: Array of Paytron User objects
-        next:
-          type: string
-          description: Pagination cursor
-    GetV1BusinessBeneficiariesSchemaResponse:
-      type: object
-      properties:
-        listPaymentType:
-          type: array
-          description: List of payment types
-        requiredFields:
-          type: object
-          description: Required fields per property
-    GetV1BusinessWalletsWalletidResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for this wallet.
-        walletNickname:
-          type: string
-          description: Optional name for this wallet.
-        currency:
-          type: string
-          description: The denoted currency for this wallet.
-        balance:
-          type: number
-          description: Total balance of this wallet, excluding inflight transactions.
-        availableBalance:
-          type: number
-          description: Available balance of this wallet, including inflight transactions.
-        bankDetails:
-          type: object
-          description: Banking details associated with a wallet.
-        additionalBankDetails:
-          type: array
-          description: Additional bank details for this wallet.
-        type:
-          type: string
-          description: 'Allowed value: currency.'
     GetV1BusinessBeneficiariesResponse:
       type: object
       properties:
@@ -1676,6 +1018,393 @@ components:
         deviceConnected:
           type: boolean
           description: Whether the user has a connected device
+    GetV1BusinessRatesBulkResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of currency rates for all requested pairs
+        id:
+          type: string
+          description: Uniquely identifies this rate
+        sellCurrency:
+          type: string
+          description: The currency you are selling.
+        buyCurrency:
+          type: string
+          description: The currency you are buying.
+        createdAt:
+          type: string
+          description: ISO datetime the rate was retrieved.
+        validUntil:
+          type: string
+          description: ISO datetime at which the rate is no longer valid.
+        companyId:
+          type: string
+          description: The ID for the company whose margin is applied in the rate.
+        wholesaleRate:
+          type: number
+          description: The market rate obtained by Paytron.
+        retailRate:
+          type: number
+          description: The rate with the relevant company's markup applied.
+        indicative:
+          type: boolean
+          description: Whether the rate is indicative of the current rates or is a cached value.
+        status:
+          type: string
+          description: 'Allowed value: 200'
+    GetV1BusinessRatesResponse:
+      type: object
+      properties:
+        base:
+          type: string
+          description: The company base currency
+        rates:
+          type: object
+          description: Currency codes as keys; value is units of that currency per one unit of the base currency.
+    GetV1BusinessUsersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of Paytron User objects
+        next:
+          type: string
+          description: Pagination cursor
+    PostV1BusinessBeneficiariesSearchRequest:
+      type: object
+      properties:
+        startDate:
+          type: string
+          description: The start date of the search
+        endDate:
+          type: string
+          description: The end date of the search
+        entityType:
+          type: string
+          description: The entity type of the recipient
+        searchTerm:
+          type: string
+          description: Searchable term for recipient search requests
+        index:
+          type: number
+          description: The page number to start your search from
+    GetV1BusinessConversionsConversionidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the conversion
+        companyId:
+          type: string
+          description: UUID identifying the conversion's company
+        paymentIds:
+          type: array
+          description: Array of unique identifiers tying a conversion to Paytron payments
+        forwardId:
+          type: string
+          description: UUID identifying the forward for a conversion
+        fixedSide:
+          type: string
+          description: The side of the transaction that is fixed (buy or sell)
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute (yyyy-mm-dd)
+        latestSettlementDate:
+          type: string
+          description: The latest date that the conversion can be executed (yyyy-mm-dd)
+        delinquentDate:
+          type: string
+          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
+        fundingMethod:
+          type: string
+          description: Funding method (e.g., Fund by credit card, Fund by direct debit)
+        cardId:
+          type: string
+          description: Card identifier when funding by credit card
+        method:
+          type: string
+          description: Funding method value (e.g., creditCard)
+        sellCurrency:
+          type: string
+          description: 3‑letter currency code of the sell currency
+        buyCurrency:
+          type: string
+          description: 3‑letter currency code of the buy currency
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime when the conversion was created
+        createdBy:
+          type: string
+          description: UUID of the creating user or client
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime when the conversion was last updated
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        links:
+          type: object
+          description: Links to related resources
+        cancellationCosts:
+          type: array
+          description: Cancellation cost links or objects
+        amount:
+          type: number
+          description: The amount of currency to convert
+        status:
+          type: string
+          description: Conversion status (e.g., NEEDS_APPROVAL, SCHEDULED, ...)
+        orderType:
+          type: string
+          description: Order type (e.g., spot)
+    PostV1BusinessBeneficiariesSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of recipients matching the requested search
+    PostV1BusinessConversionsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the conversion
+        companyId:
+          type: string
+          description: UUID identifying the conversion's company
+        paymentIds:
+          type: array
+          description: Array of unique identifiers tying a conversion to Paytron payments.
+        forwardId:
+          type: string
+          description: UUID identifying the forward for a conversion, if applicable
+        fixedSide:
+          type: string
+          description: The side of the transaction that is fixed (buy or sell)
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute (yyyy-mm-dd)
+        latestSettlementDate:
+          type: string
+          description: The latest date that the conversion can be executed (yyyy-mm-dd)
+        delinquentDate:
+          type: string
+          description: The business day the conversion will be considered delinquent (yyyy-mm-dd)
+        fundingMethod:
+          type: string
+          description: Funding method used
+        cardId:
+          type: string
+          description: Card identifier when funded by credit card
+        method:
+          type: string
+          description: Funding method type
+        sellCurrency:
+          type: string
+          description: 3‑letter currency code of the sell currency
+        buyCurrency:
+          type: string
+          description: 3‑letter currency code of the buy currency
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime of creation
+        createdBy:
+          type: string
+          description: UUID of the creating user or client
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime of last update
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        amount:
+          type: number
+          description: The amount of currency to convert
+        status:
+          type: string
+          description: Current status of the conversion
+        orderType:
+          type: string
+          description: Order type (spot or fixed)
+    PostV1BusinessConversionsRateResponse:
+      type: object
+      properties:
+        buyCurrency:
+          type: string
+          description: 3 letter currency code of the buy currency
+        sellCurrency:
+          type: string
+          description: 3 letter currency code of the sell currency
+        fixedSide:
+          type: string
+          description: Which side of the conversion is being fixed
+        buyAmount:
+          type: string
+          description: Amount of buyCurrency being bought
+        sellAmount:
+          type: string
+          description: Amount of sellCurrency being sold
+        conversionDate:
+          type: string
+          description: The day the conversion, if created from this quote, will start trying to execute
+        ourRate:
+          type: string
+          description: The rate Paytron receives
+        yourRate:
+          type: string
+          description: The rate the customer receives
+        ourMargin:
+          type: string
+          description: The margin taken as a fee, represented as a percentage
+    PostV1BusinessBeneficiariesValidateResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          description: Whether the beneficiary details are valid
+        errors:
+          type: array
+          description: List of validation errors. Empty array when validation is successful.
+        errors[].field:
+          type: string
+          description: Field that failed validation
+        errors[].message:
+          type: string
+          description: Validation error message
+    PatchV1BusinessBeneficiariesBeneficiaryidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the beneficiary
+        name:
+          type: string
+        firstName:
+          type: string
+          description: First name of the beneficiary
+        lastName:
+          type: string
+          description: Last name of the beneficiary
+        companyName:
+          type: string
+        email:
+          type: string
+          description: Email of the beneficiary
+        currency:
+          type: string
+          description: Currency the beneficiary will receive
+        entityType:
+          type: string
+          description: Type of beneficiary
+        ABN:
+          type: string
+          description: Australian Business Number of this beneficiary
+        address:
+          type: string
+          description: The full address of the beneficiary
+        country:
+          type: string
+          description: Country where the beneficiary resides
+        state:
+          type: string
+          description: State where the beneficiary resides
+        city:
+          type: string
+          description: City where the beneficiary resides
+        postCode:
+          type: string
+          description: PostCode of the beneficiary's address
+        accountNumber:
+          type: string
+          description: The primary account number of the beneficiary
+        bankAccountHolderName:
+          type: string
+          description: The name on the bank account holder
+        paymentType:
+          type: string
+          description: The type of payment rail this beneficiary is using
+        payIdType:
+          type: string
+          description: If the the payment type of the beneficiary is payId. This is the type of payId the beneficiary is using.
+        customerReferenceNumber:
+          type: string
+          description: BPAY customer reference number
+        bankCode:
+          type: string
+        bankCodeValue:
+          type: string
+        bankCodeType:
+          type: string
+        bankInfo:
+          type: object
+        BICSWIFT:
+          type: string
+          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
+        IBAN:
+          type: string
+          description: International Bank Account Number for this beneficiary, if applicable.
+        preferredXeroAccountCode:
+          type: string
+          description: The preferred xero account code for this beneficiary
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        status:
+          type: string
+          description: The status of the beneficiary
+        validatedAt:
+          type: string
+          description: UTC datetime of when the beneficiary was last validated
+    PostV1BusinessConversionsRateRequest:
+      type: object
+      properties:
+        buyCurrency:
+          type: string
+          description: 3 letter currency code of the buy currency
+        sellCurrency:
+          type: string
+          description: 3 letter currency code of the sell currency
+        fixedSide:
+          type: string
+          description: Which side of the conversion is being fixed
+        amount:
+          type: string
+          description: fixedSide buy — The amount of buyCurrency being bought; fixedSide sell — The amount of sellCurrency being sold
+        conversionDate:
+          type: string
+          description: The day the conversion will start trying to execute. Defaults to today.
+        rateDate:
+          type: string
+          description: The date to lock the FX rate for the conversion on. Defaults to conversionDate.
+      required:
+      - buyCurrency
+      - sellCurrency
+      - fixedSide
+      - amount
+    PostV1BusinessBeneficiariesRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Top‑level JSON:API data object.
+        data.type:
+          type: string
+          description: 'Allowed value: beneficiaries.'
+        data.attributes:
+          type: object
+          description: Attributes of the beneficiary (e.g., entityType, companyName, name, paymentType, currency, address, accountName, accountNumber, primaryRoutingCodeType, primaryRoutingCodeValue, bankDetails, email).
+      required:
+      - data
+      - data.type
+      - data.attributes
     GetV1BusinessUsersCurrentPermissionsResponse:
       type: object
       properties:
@@ -1704,12 +1433,46 @@ components:
           type: boolean
         countryCode:
           type: string
-    PostV1BusinessBeneficiariesSearchResponse:
+    GetV1BusinessWalletsResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: The list of wallets for this company.
+    PostV1BusinessWalletsRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: 'The type of wallet to create. Allowed value: multi.'
+        name:
+          type: string
+          description: Name of the wallet.
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+      required:
+      - type
+      - name
+      - currency
+    GetV1BusinessConversionsResponse:
       type: object
       properties:
         data:
           type: array
-          description: A list of recipients matching the requested search
+          description: A list of conversions matching the request input.
+        cursor:
+          type: string
+          description: Pagination cursor if the full response could not be returned in one call.
+    GetV1BusinessBeneficiariesSchemaResponse:
+      type: object
+      properties:
+        listPaymentType:
+          type: array
+          description: List of payment types
+        requiredFields:
+          type: object
+          description: Required fields per property
     PostV1BusinessWalletsResponse:
       type: object
       properties:
@@ -1737,22 +1500,259 @@ components:
         type:
           type: string
           description: Wallet type, e.g., currency.
-    PostV1BusinessWalletsRequest:
+    PostV1BusinessConversionsRequest:
       type: object
       properties:
-        type:
+        quoteId:
           type: string
-          description: 'The type of wallet to create. Allowed value: multi.'
+          description: UUID of the quote to use for the conversion
+        orderType:
+          type: string
+          description: For guaranteed rate conversions, must be either 'fixed' or 'spot'
+        paymentIds:
+          type: array
+          description: List of Payment ids associated with the conversion.
+        fundingMethod:
+          type: string
+          description: Fund by credit card or direct debit
+        cardId:
+          type: string
+          description: Identifier of the credit card when fundingMethod is credit card
+        method:
+          type: string
+          description: 'Funding method type, allowed value: creditCard'
+        paymentFee:
+          type: number
+          description: Fee to account for when conversion is linked to a payment with a fee
+      required:
+      - quoteId
+      - orderType
+    PostV1BusinessUsersValidateemailRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email to be validated
+      required:
+      - email
+    GetV1BusinessBeneficiariesBeneficiaryidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifying the beneficiary
         name:
           type: string
-          description: Name of the wallet.
+        firstName:
+          type: string
+          description: First name of the beneficiary
+        lastName:
+          type: string
+          description: Last name of the beneficiary
+        companyName:
+          type: string
+        email:
+          type: string
+          description: Email of the beneficiary
         currency:
           type: string
-          description: ISO 4217 currency code.
+          description: Currency the beneficiary will receive
+        entityType:
+          type: string
+          description: Type of beneficiary
+        ABN:
+          type: string
+          description: Australian Business Number of this beneficiary
+        address:
+          type: string
+          description: The full address of the beneficiary
+        country:
+          type: string
+          description: Country where the beneficiary resides
+        state:
+          type: string
+          description: State where the beneficiary resides
+        city:
+          type: string
+          description: City where the beneficiary resides
+        postCode:
+          type: string
+          description: PostCode of the beneficiary's address
+        accountNumber:
+          type: string
+          description: The primary account number of the beneficiary
+        bankAccountHolderName:
+          type: string
+          description: The name on the bank account holder
+        paymentType:
+          type: string
+          description: The type of payment rail this beneficiary is using
+        payIdType:
+          type: string
+          description: If the payment type is payId, the type of payId the beneficiary is using
+        customerReferenceNumber:
+          type: string
+          description: BPAY customer reference number
+        bankCode:
+          type: string
+          description: The value for the institution/bank‑level code
+        bankCodeValue:
+          type: string
+          description: The actual routing value for the selected bankCodeType
+        bankCodeType:
+          type: string
+          description: The type of the bank code
+        bankInfo:
+          type: object
+          description: All the information about the bank account
+        BICSWIFT:
+          type: string
+          description: Bank Identifier Code / SWIFT code for this beneficiary, if applicable.
+        IBAN:
+          type: string
+          description: International Bank Account Number for this beneficiary, if applicable.
+        preferredXeroAccountCode:
+          type: string
+          description: The preferred xero account code for this beneficiary
+        createdAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedAt:
+          type: string
+          description: ISO 8601 UTC datetime
+        updatedBy:
+          type: string
+          description: UUID of the last updating user
+        status:
+          type: string
+          description: The status of the beneficiary
+        validatedAt:
+          type: string
+          description: UTC datetime of when the beneficiary was last validated
+    PostV1BusinessUsersValidateemailResponse:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email validated by the platform
+        id:
+          type: string
+          description: The corresponding user id, if any
+        isValid:
+          type: boolean
+          description: The validation result, true for valid, false for invalid
+        isExisting:
+          type: boolean
+          description: Flag indicating a corresponding user account exists
+    PatchV1BusinessBeneficiariesBeneficiaryidRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        data.type:
+          type: string
+          description: Resource type. Must be set to 'beneficiaries'.
+        data.attributes:
+          type: object
+        data.attributes.address:
+          type: object
+        data.attributes.address.address:
+          type: string
+        data.attributes.address.city:
+          type: string
+        data.attributes.address.postCode:
+          type: string
+        data.attributes.address.state:
+          type: string
+        data.attributes.address.country:
+          type: string
+        data.attributes.address.countryCode:
+          type: string
+        data.attributes.email:
+          type: string
+        data.attributes.name:
+          type: string
+        data.attributes.paymentInformation:
+          type: object
+        data.attributes.paymentInformation.accountName:
+          type: string
+        data.attributes.paymentInformation.accountNumber:
+          type: string
+        data.attributes.paymentInformation.bankDetails:
+          type: object
+        data.attributes.paymentInformation.bankDetails.address:
+          type: string
+        data.attributes.paymentInformation.bankDetails.city:
+          type: string
+        data.attributes.paymentInformation.bankDetails.postCode:
+          type: string
+        data.attributes.paymentInformation.bankDetails.country:
+          type: string
+        data.attributes.paymentInformation.bankDetails.countryCode:
+          type: string
+        data.attributes.paymentInformation.bankDetails.name:
+          type: string
+        data.attributes.paymentInformation.currency:
+          type: string
+        data.attributes.paymentInformation.primaryRoutingCodeType:
+          type: string
+        data.attributes.paymentInformation.primaryRoutingCodeValue:
+          type: string
+        data.attributes.entityType:
+          type: string
+        data.attributes.abn:
+          type: string
+        data.attributes.companyName:
+          type: string
+        data.attributes.paymentType:
+          type: string
+        data.attributes.status:
+          type: string
       required:
-      - type
-      - name
-      - currency
+      - data
+      - data.type
+      - data.attributes
+    GetV1BusinessWalletsWalletidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this wallet.
+        walletNickname:
+          type: string
+          description: Optional name for this wallet.
+        currency:
+          type: string
+          description: The denoted currency for this wallet.
+        balance:
+          type: number
+          description: Total balance of this wallet, excluding inflight transactions.
+        availableBalance:
+          type: number
+          description: Available balance of this wallet, including inflight transactions.
+        bankDetails:
+          type: object
+          description: Banking details associated with a wallet.
+        additionalBankDetails:
+          type: array
+          description: Additional bank details for this wallet.
+        type:
+          type: string
+          description: 'Allowed value: currency.'
+    GetV1BusinessBeneficiariesBankDetailsResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          description: required
+        bankName:
+          type: string
+        bankAddress:
+          type: string
+        bankCity:
+          type: string
+        bankPostCode:
+          type: string
   securitySchemes:
     OAuth_2.0:
       type: oauth2
