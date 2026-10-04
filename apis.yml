@@ -211,6 +211,8 @@ apis:
   humanURL: https://api-docs.ofx.com/docs/aisp-api
   baseURL: https://beta.api.ofx.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -379,6 +381,8 @@ apis:
   humanURL: https://api-docs.ofx.com/docs/aisp-api
   baseURL: https://beta.api.ofx.com
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
