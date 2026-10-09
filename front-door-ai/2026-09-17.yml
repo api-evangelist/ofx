@@ -1,0 +1,30 @@
+# Front Door AI Index — ofx — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: ofx
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.ofx.com
+  final_host: www.ofx.com
+  ownership: own
+  owner: ofx
+  shares_host_with:
+  - ozforex
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 5
+  band: 4
+  band_label: moderate
+  host_score: 5
+  density: 2.73
+  words: 1830
+  tiers:
+    agentic: 0
+    core: 5
+    model: 0
+  ambiguous: 2
+  top_terms:
+    AI: 5
+    automation: 2

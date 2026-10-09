@@ -20,3 +20,28 @@ plans:
   price_text: Custom Pricing
   description: Designed to scale with your business. Over 50 users or high transaction volumes.
 docs: https://www.ofx.com/en-us/business/pricing/
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Standard
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Full Suite
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Custom
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
