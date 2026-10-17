@@ -47,19 +47,6 @@ paths:
                 $ref: '#/components/schemas/PostRefreshTokenResponse'
 components:
   schemas:
-    PostRefreshTokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-        expires_in:
-          type: integer
-        refresh_token:
-          type: string
-        refresh_token_expires_in:
-          type: integer
-        token_type:
-          type: string
     PostRefreshTokenRequest:
       type: object
       properties:
@@ -72,6 +59,19 @@ components:
         client_secret:
           type: string
         scope:
+          type: string
+    PostRefreshTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        refresh_token_expires_in:
+          type: integer
+        token_type:
           type: string
   securitySchemes:
     OAuth_2.0:

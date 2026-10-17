@@ -215,6 +215,30 @@ components:
           description: Meta Data relevant to the payload
         Meta.TotalPages:
           type: integer
+    PostOpenBankingV31AispAccountAccessConsentsResponse:
+      type: object
+      properties:
+        '201':
+          type: string
+          description: Account Access Consents Created
+        '400':
+          type: string
+          description: Bad Request
+        '401':
+          type: string
+          description: Unauthorized
+        '403':
+          type: string
+          description: Forbidden
+        '404':
+          type: string
+          description: Not Found
+        '429':
+          type: string
+          description: Too Many Requests
+        '500':
+          type: string
+          description: Internal Server Error
     PostOpenBankingV31AispAccountAccessConsentsRequest:
       type: object
       properties:
@@ -240,30 +264,39 @@ components:
       - Data
       - Data.Permissions
       - Risk
-    PostOpenBankingV31AispAccountAccessConsentsResponse:
+    PostOpenBankingV31PispPaymentConsentRequest:
       type: object
       properties:
-        '201':
+        Currency:
           type: string
-          description: Account Access Consents Created
-        '400':
+          description: Currency of the amount to be transferred
+        Amount:
+          type: integer
+          description: Amount to be transferred
+      required:
+      - Currency
+      - Amount
+    PostOpenBankingV31PispPaymentConsentResponse:
+      type: object
+      properties:
+        ConsentId:
           type: string
-          description: Bad Request
-        '401':
+          description: Unique identification as assigned to identify the payment consent resource.
+        Status:
           type: string
-          description: Unauthorized
-        '403':
+          description: Specifies the status of consent resource in code form.
+        StatusUpdateDateTime:
           type: string
-          description: Forbidden
-        '404':
+          description: Date and time at which the resource status was updated.
+        CreationDateTime:
           type: string
-          description: Not Found
-        '429':
+          description: Date and time at which the resource was created.
+        Amount:
+          type: integer
+          description: Amount to be transferred
+        Currency:
           type: string
-          description: Too Many Requests
-        '500':
-          type: string
-          description: Internal Server Error
+          description: Currency of the amount to be transferred
     GetOpenBankingV31PispDealDealidResponse:
       type: object
       properties:
@@ -318,39 +351,6 @@ components:
         Deal.StateInfo:
           type: object
           description: StateInfo
-    PostOpenBankingV31PispPaymentConsentResponse:
-      type: object
-      properties:
-        ConsentId:
-          type: string
-          description: Unique identification as assigned to identify the payment consent resource.
-        Status:
-          type: string
-          description: Specifies the status of consent resource in code form.
-        StatusUpdateDateTime:
-          type: string
-          description: Date and time at which the resource status was updated.
-        CreationDateTime:
-          type: string
-          description: Date and time at which the resource was created.
-        Amount:
-          type: integer
-          description: Amount to be transferred
-        Currency:
-          type: string
-          description: Currency of the amount to be transferred
-    PostOpenBankingV31PispPaymentConsentRequest:
-      type: object
-      properties:
-        Currency:
-          type: string
-          description: Currency of the amount to be transferred
-        Amount:
-          type: integer
-          description: Amount to be transferred
-      required:
-      - Currency
-      - Amount
   securitySchemes:
     OAuth_2.0:
       type: oauth2
