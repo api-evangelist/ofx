@@ -64,5 +64,157 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-OFX is a company surfaced via the API Evangelist harvest backlog (source: payments) and added to the network as a stub for full-pipeline profiling.
-- https://ofx.com/
+OFX provides a global money transfer platform enabling businesses and individuals to send payments in over 30 currencies to 180+ countries. It offers corporate cards, multi‑currency accounts, FX solutions, and integrated tools for accounting software like QuickBooks and Xero. The service includes spend management, fraud prevention, and a control hub for approvals and budgeting, catering to both personal and business financial needs.
+
+**Areas:** Company · Payments · Money Transfer · Fintech · Banking
+
+## OFX on APIs.io
+
+Everything profiled for OFX is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ofx/](https://apis.io/providers/ofx/)** — or go straight to one of the APIs or properties below.
+
+### APIs (8)
+
+- [OFX Authorization Code API](https://apis.io/apis/ofx/ofx-authorization-code-api/) — The Authorization Code API from OFX — 1 operation(s) for authorization code.
+- [OFX Authorize API](https://apis.io/apis/ofx/ofx-authorize-api/) — The Authorize API from OFX — 1 operation(s) for authorize.
+- [OFX Business API](https://apis.io/apis/ofx/ofx-business-api/) — The Business API from OFX — 18 operation(s) for business.
+- [OFX OAuth API](https://apis.io/apis/ofx/ofx-oauth-api/) — The Oauth API from OFX — 2 operation(s) for oauth.
+- [OFX Ofxrates API](https://apis.io/apis/ofx/ofx-ofxrates-api/) — The Ofxrates API from OFX — 3 operation(s) for ofxrates.
+- [OFX Open Banking API](https://apis.io/apis/ofx/ofx-open-banking-api/) — The Open Banking API from OFX — 5 operation(s) for open banking.
+- [OFX Refresh Token API](https://apis.io/apis/ofx/ofx-refresh-token-api/) — The Refresh Token API from OFX — 1 operation(s) for refresh token.
+- [OFX Token API](https://apis.io/apis/ofx/ofx-token-api/) — The Token API from OFX — 1 operation(s) for token.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [ofx-mcp.yml](https://apis.io/servers/ofx/ofx-mcp-yml/)
+
+#### JSON Schema (16)
+
+The data models the API reads and writes.
+
+- [GetOpenBankingV31AispAccountsResponse](https://apis.io/schemas/ofx/ofx-get-open-banking-v31-aisp-accounts-response/)
+- [GetOpenBankingV31PispDealDealidResponse](https://apis.io/schemas/ofx/ofx-get-open-banking-v31-pisp-deal-dealid-response/)
+- [GetV1BusinessBeneficiariesBeneficiaryidResponse](https://apis.io/schemas/ofx/ofx-get-v1-business-beneficiaries-beneficiaryid-response/)
+- [GetV1BusinessConversionsConversionidResponse](https://apis.io/schemas/ofx/ofx-get-v1-business-conversions-conversionid-response/)
+- [GetV1BusinessUsersUseridResponse](https://apis.io/schemas/ofx/ofx-get-v1-business-users-userid-response/)
+- [GetV1OfxratesFromcurrencyTocurrencyAmountResponse](https://apis.io/schemas/ofx/ofx-get-v1-ofxrates-fromcurrency-tocurrency-amount-response/)
+- [PatchV1BusinessBeneficiariesBeneficiaryidRequest](https://apis.io/schemas/ofx/ofx-patch-v1-business-beneficiaries-beneficiaryid-request/)
+- [PatchV1BusinessBeneficiariesBeneficiaryidResponse](https://apis.io/schemas/ofx/ofx-patch-v1-business-beneficiaries-beneficiaryid-response/)
+- [PostOpenBankingV31AispAccountAccessConsentsRequest](https://apis.io/schemas/ofx/ofx-post-open-banking-v31-aisp-account-access-consents-request/)
+- [PostOpenBankingV31AispAccountAccessConsentsResponse](https://apis.io/schemas/ofx/ofx-post-open-banking-v31-aisp-account-access-consents-response/)
+- [PostOpenBankingV31PispPaymentConsentRequest](https://apis.io/schemas/ofx/ofx-post-open-banking-v31-pisp-payment-consent-request/)
+- [PostOpenBankingV31PispPaymentConsentResponse](https://apis.io/schemas/ofx/ofx-post-open-banking-v31-pisp-payment-consent-response/)
+- [PostRefreshTokenResponse](https://apis.io/schemas/ofx/ofx-post-refresh-token-response/)
+- [PostTokenRequest](https://apis.io/schemas/ofx/ofx-post-token-request/)
+- [PostV1BusinessConversionsResponse](https://apis.io/schemas/ofx/ofx-post-v1-business-conversions-response/)
+- [PostV1OauthTokenRequest](https://apis.io/schemas/ofx/ofx-post-v1-oauth-token-request/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Ofx Context](https://apis.io/jsonld/ofx/ofx-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [OFX API Rules](https://apis.io/rules/ofx/ofx-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ofx Authentication](https://apis.io/security/ofx/ofx-authentication/)
+- [Ofx Domain Security](https://apis.io/security/ofx/ofx-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Ofx Scopes](https://apis.io/scopes/ofx/ofx-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ofx Plans Pricing](https://apis.io/plans/ofx/ofx-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ofx Rate Limits](https://apis.io/rate-limits/ofx/ofx-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.ofx.com/en-us/)
+- [Documentation](https://api-docs.ofx.com/)
+- [Getting started](https://api-docs.ofx.com/docs/aisp-api/ZG9jOjQ1Mg-introduction)
+- [Pricing](https://www.ofx.com/en-us/business/pricing/)
+- [Support](https://www.ofx.com/en-us/business/help/)
+- [Blog](https://www.ofx.com/en-us/blog/)
+- [Security](https://www.ofx.com/en-us/security/)
+- [Privacy policy](https://www.ofx.com/en-us/legal/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 44.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 25.4 |
+| Contract governance | 22.0 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 65.8 |
+
+**Agent readiness 28.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 29.9** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ofx/](https://apis.io/providers/ofx/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OFX: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ofx/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
